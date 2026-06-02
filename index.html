@@ -416,12 +416,22 @@ tr:last-child td{border-bottom:none}
 
 <!-- RESULTADO PARTICIPANTE -->
 <div class="page" id="pgResult">
-  <div class="topbar">
-    <div class="topbar-brand"><div class="topbar-bar"></div><div><div class="t-name">VIZZIO</div><div class="t-tag">TRAINING</div></div></div>
-    <button class="btn-sm" onclick="window.print()" style="display:flex;align-items:center;gap:6px">📄 Salvar PDF</button>
-  </div>
-  <div class="r-scroll" id="rScroll">
-    <!-- preenchido dinamicamente -->
+  <div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 24px;text-align:center;background:var(--bg)">
+    <svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:28px">
+      <circle cx="40" cy="40" r="38" fill="rgba(0,212,200,.1)" stroke="var(--teal)" stroke-width="2"/>
+      <path d="M24 40 L35 51 L56 29" stroke="var(--teal)" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <div style="font-size:13px;font-weight:700;color:var(--teal);letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px">Assessment Concluído</div>
+    <div id="rThankName" style="font-size:28px;font-weight:900;color:var(--text);margin-bottom:12px">Obrigado!</div>
+    <div style="font-size:16px;color:var(--muted);line-height:1.7;max-width:400px;margin:0 auto 32px">
+      Suas respostas foram registradas com sucesso.<br>
+      Em breve nossa equipe entrará em contato com os resultados da sua avaliação.
+    </div>
+    <div style="padding:16px 24px;background:var(--card);border:1px solid var(--border);border-radius:12px;max-width:360px;margin:0 auto">
+      <div style="font-size:12px;color:var(--subtle);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px">Vizzio Training</div>
+      <div style="font-size:12px;color:var(--muted)">Diagnóstico Comportamental Avançado</div>
+    </div>
+    <div style="margin-top:48px;font-size:11px;color:var(--subtle)">Desenvolvido por <strong style="color:var(--muted)">Tríade Resultados</strong> · Alexandre Amorim</div>
   </div>
 </div>
 
@@ -581,61 +591,61 @@ var QQ_ALL = [
 
 // ── DISC — Dominância ──────────────────────────────────────
 {id:0,phase:"Perfil Comportamental",inst:"DISC",dim:"D",
- ctx:"Imagine que você está no trabalho e surge uma situação urgente. Sem tempo para esperar, sem todas as informações na mão.",
- q:"O que acontece naturalmente com você nesse momento?",
- opts:["Tomo a frente imediatamente — prefiro agir e ajustar depois","Envolvo as pessoas chave antes de qualquer movimento","Analiso com calma o que está acontecendo antes de decidir","Sigo o processo que existe e improviso dentro dele","Depende muito do quanto aquilo me afeta diretamente"],
+ ctx:"Situação crítica no trabalho. Problema na sua frente, pressão alta, sem todas as informações que você gostaria.",
+ q:"O que você faz de verdade — não o que você acha que deveria fazer?",
+ opts:["Tomo a frente na hora — prefiro agir e corrigir no caminho a esperar","Envolvo as pessoas certas antes de me mover — decisão sem time é risco","Analiso antes de agir — me mover sem clareza me incomoda profundamente","Sigo o processo que existe — funciona porque foi pensado para isso","Depende do quanto aquilo me afeta diretamente — isso muda tudo"],
  score:[5,3,2,3,3],
  multi:[{dim:"I",w:[3,4,2,2,2]},{dim:"C",w:[1,2,4,5,3]}]},
 
 {id:1,phase:"Perfil Comportamental",inst:"DISC",dim:"D",
- ctx:"Numa discussão importante, você tem um ponto de vista diferente da maioria. Todos estão te olhando.",
- q:"O que você costuma fazer?",
- opts:["Defendo minha posição — não mudo só por pressão social","Tento convencer mostrando os benefícios do meu ponto","Ouço com atenção antes de decidir se vale a pena insistir","Peço dados e evidências para embasar melhor a discussão","Cedo na forma mas mantenho a essência do que acredito"],
+ ctx:"Reunião importante. Você tem uma posição diferente da maioria. Todo mundo olha para você.",
+ q:"O que você faz?",
+ opts:["Defendo — não mudo de posição por pressão social","Convença os outros mostrando os benefícios do que acredito","Ouço com atenção antes de decidir se vale insistir","Peço dados — posição sem evidência é opinião","Cedo na forma mas mantenho a essência do que penso"],
  score:[5,4,3,4,3],
  multi:[{dim:"I",w:[3,5,3,2,2]},{dim:"C",w:[2,2,3,5,3]}]},
 
 // ── DISC — Influência ─────────────────────────────────────
 {id:2,phase:"Perfil Comportamental",inst:"DISC",dim:"I",
- ctx:"Você está numa reunião importante e percebe que a energia do grupo está baixa — as pessoas estão desengajadas.",
- q:"O que você sente vontade de fazer nessa situação?",
- opts:["Assumo a condução e começo a mover o grupo com energia","Crio um momento mais leve para reconectar as pessoas","Fico atento ao que está incomodando e tento resolver","Foco no que precisa ser decidido e empurro para a agenda","Observo um pouco mais antes de me posicionar"],
+ ctx:"Reunião travada. Energia baixa, pessoas desengajadas, a pauta está parada.",
+ q:"O que você sente vontade de fazer — não o que você acha correto, o que você de fato quer fazer?",
+ opts:["Assumo a condução e começo a mover o grupo — energia baixa me incomoda e eu quero resolver","Crio um momento mais leve para reconectar as pessoas antes de voltar à pauta","Fico atento ao que está bloqueando o grupo e tento resolver a raiz","Foco no que precisa ser decidido e empurro para frente — objetivo é o objetivo","Observo mais um tempo antes de me posicionar — não gosto de me mover sem entender"],
  score:[4,5,3,3,2],
  multi:[{dim:"D",w:[4,2,2,4,2]},{dim:"S",w:[2,3,5,3,4]}]},
 
 {id:3,phase:"Perfil Comportamental",inst:"DISC",dim:"I",
- ctx:"Uma apresentação importante para um grupo que ainda não te conhece. Você está de frente para essas pessoas.",
- q:"O que acontece dentro de você nesse momento?",
- opts:["Me energizo — esse tipo de situação me motiva de verdade","Fico animado mas com um frio na barriga que passa rápido","Me preparo muito porque não gosto de ser pego de surpresa","Prefiro muito mais o bastidor — apresentações não são minha praia","Me adapto bem, mas não é onde me sinto mais confortável"],
+ ctx:"Apresentação importante para um grupo que ainda não te conhece. Você na frente de todos.",
+ q:"O que passa dentro de você nesse momento?",
+ opts:["Me energizo — esse tipo de situação me ativa de verdade","Fico animado mas com um frio na barriga que passa quando começo","Me preparo muito porque ser pego de surpresa me incomoda","Prefiro o bastidor — apresentações não são onde me sinto forte","Me adapto, mas não é onde me sinto mais confortável e natural"],
  score:[5,4,3,1,2],
  multi:[{dim:"D",w:[4,3,3,2,2]},{dim:"S",w:[2,2,3,5,4]}]},
 
 // ── DISC — Estabilidade ───────────────────────────────────
 {id:4,phase:"Perfil Comportamental",inst:"DISC",dim:"S",
- ctx:"Seu gestor chega com uma mudança de última hora. Tudo que você planejou para a semana vai mudar.",
- q:"Como você reage internamente a isso?",
- opts:["Adapto rápido — mudança faz parte, não tem muito o que fazer","Fico um pouco incomodado mas me ajusto bem","Preciso de um tempo para processar — não gosto de mudança brusca","Me irrito internamente, mas consigo me controlar","Depende do quanto aquela mudança impacta o que já está em curso"],
+ ctx:"Seu gestor chega com uma mudança de última hora. Tudo que você planejou para a semana muda.",
+ q:"O que acontece dentro de você — não o que você demonstra, o que você sente de verdade?",
+ opts:["Adapto rápido — mudança faz parte, não tem o que fazer","Fico um pouco incomodado mas me ajusto com relativa facilidade","Preciso de um tempo para processar — mudança brusca me desequilibra","Me irrito internamente, mesmo que consiga me controlar por fora","Depende do impacto da mudança no que já estava em curso"],
  score:[2,3,5,2,4],
  multi:[{dim:"D",w:[4,3,2,4,3]},{dim:"C",w:[2,3,4,3,4]}]},
 
 {id:5,phase:"Perfil Comportamental",inst:"DISC",dim:"S",
- ctx:"Uma semana puxada, muitas entregas. No limite, alguém da equipe pede sua ajuda urgente.",
+ ctx:"Semana no limite. Muitas entregas. Alguém da equipe te pede ajuda urgente.",
  q:"O que você faz?",
- opts:["Paro e ajudo — o time em primeiro lugar, sempre","Avalio quanto tempo leva e, se der, ajudo com prazer","Explico que não consigo agora, mas marcamos pra logo depois","Ajudo, mas deixo claro que espero reciprocidade","Depende de quem é e do quanto me compromete"],
+ opts:["Paro e ajudo — o time vem primeiro, sempre","Avalio rapidamente e, se der, ajudo com genuína vontade","Explico que não consigo agora, mas já marcamos para logo depois","Ajudo, mas deixo claro que espero reciprocidade","Depende de quem é e do quanto isso compromete o que eu tenho para entregar"],
  score:[5,4,3,3,3],
  multi:[{dim:"I",w:[4,3,2,3,2]},{dim:"D",w:[2,3,4,3,3]}]},
 
 // ── DISC — Conformidade ───────────────────────────────────
 {id:6,phase:"Perfil Comportamental",inst:"DISC",dim:"C",
- ctx:"Você recebe uma tarefa nova. Ainda não foi explicada completamente — há espaço para improvisar.",
- q:"Como você prefere encarar isso?",
- opts:["Começo logo e vou ajustando no caminho — aprendo na prática","Busco entender o contexto antes de qualquer ação","Monto um plano detalhado antes de dar o primeiro passo","Pesquiso referências e melhores práticas antes de agir","Faço um escopo mínimo e vou iterando com feedback"],
+ ctx:"Você recebe uma tarefa nova, explicada pela metade. Tem espaço para improvisar ou para aprofundar.",
+ q:"Como você naturalmente prefere encarar isso?",
+ opts:["Começo logo e vou ajustando — aprendo fazendo","Entendo o contexto completo antes de qualquer ação","Monto um plano detalhado antes de dar o primeiro passo","Pesquiso referências e melhores práticas antes de agir","Faço um escopo mínimo e itero com feedback do caminho"],
  score:[1,3,4,5,4],
  multi:[{dim:"D",w:[5,3,2,2,3]},{dim:"S",w:[2,4,5,4,4]}]},
 
 {id:7,phase:"Perfil Comportamental",inst:"DISC",dim:"C",
- ctx:"Você está revisando um trabalho antes de entregar. Está bom — mas poderia estar melhor com mais 2 horas.",
+ ctx:"Você está revisando um trabalho antes de entregar. Está bom — poderia estar melhor com mais 2 horas.",
  q:"O que você decide?",
- opts:["Entrego do jeito que está — prazo é prazo","Ajusto o que der em 15 minutos e entrego","Trabalho mais até chegar no padrão que considero adequado","Reviso item por item — não entrego sem ter certeza","Entrego, mas peço feedback para continuar melhorando"],
+ opts:["Entrego como está — prazo é prazo e bom já resolve","Ajusto o que der em 15 minutos e entrego","Trabalho mais até chegar no padrão que considero adequado","Reviso item por item — não entrego sem ter certeza","Entrego, mas já anoto o que melhoraria e peço feedback"],
  score:[1,3,4,5,4],
  multi:[{dim:"D",w:[5,4,2,1,3]},{dim:"I",w:[2,3,3,2,4]}]},
 
@@ -737,10 +747,10 @@ var QQ_ALL = [
  score:[5,4,2,1,2]},
 
 {id:21,phase:"Sabotadores Internos",inst:"SAB",dim:"Hiperanalitico",
- ctx:"Você está prestes a tomar uma decisão importante. Você tem dados suficientes para isso.",
- q:"O que acontece internamente quando chega o momento real de decidir?",
- opts:["Sinto desconforto genuíno — preciso de mais certeza antes de agir, mesmo sabendo que já tenho o suficiente","Às vezes postergo sem perceber — processo internamente por mais tempo que o necessário","Decido com o que tenho, ajustando conforme o resultado aparece","Tomo a decisão sem dificuldade — mais dados não mudam minha posição","Consulto outras pessoas, mas mais para confirmar do que para aprender algo novo"],
- score:[5,4,1,1,3]},
+ ctx:"Você tem dados suficientes para tomar uma decisão importante. Racionalmente você sabe que pode decidir.",
+ q:"O que acontece no seu corpo e na sua cabeça nesse momento de decidir?",
+ opts:["Sinto uma inquietação interna real — é difícil aceitar que 'suficiente' é suficiente, quero mais certeza","Noto que processo por mais tempo do que o necessário — uma voz interna adia mesmo quando já sei o que fazer","Decido com naturalidade usando o que tenho — não sinto desconforto nesse processo","Decido rápido e com leveza — excesso de análise não é meu padrão","Às vezes preciso de um tempo extra, mas isso não me gera sofrimento ou travamento"],
+ score:[5,4,1,1,2]},
 
 {id:22,phase:"Sabotadores Internos",inst:"SAB",dim:"Prestativo",
  ctx:"Você claramente precisava de algo para si mesmo — descanso, tempo, espaço. Nesse momento, alguém próximo pede sua ajuda.",
@@ -797,50 +807,50 @@ var chatSending = false; // Trava para evitar duplo envio ao responder rápido
 
 // ── Reações contextualizadas — adaptam-se ao tipo de resposta ──
 var REACOES_LETRA = [
-  "Anotado! ",
-  "Perfeito, registrado. ",
-  "Beleza, vamos seguir. ",
-  "Capturei aqui. ",
-  "Show, prosseguindo. ",
-  "Excelente, anotei. ",
-  "Entendido, seguimos. ",
-  "Ótimo, registrado. "
+  "Registrado. ",
+  "Anotei aqui. ",
+  "Capturei. ",
+  "Seguimos. ",
+  "Entendido. ",
+  "Ok, avançando. ",
+  "Anotado, vamos em frente. ",
+  "Registrado, próxima. "
 ];
 
 var REACOES_TEXTO_LIVRE = [
-  "Que reflexão importante! ",
-  "Obrigada por compartilhar com tanta clareza. ",
-  "Faz muito sentido o que você trouxe. ",
-  "Adorei a forma como você colocou. ",
-  "Essa perspectiva diz muito sobre você. ",
-  "Que rico esse compartilhamento. ",
-  "Isso revela bastante sobre como você funciona. "
+  "Isso diz muito. ",
+  "Esse nível de consciência já é diferencial. ",
+  "Quem se conhece assim tem vantagem real. ",
+  "Esse olhar honesto é o começo de tudo. ",
+  "Clareza assim é rara — e poderosa. ",
+  "Esse contexto enriquece muito a análise. ",
+  "Quem nomeia o que sente já deu o primeiro passo. "
 ];
 
 var REACOES_BLEND = [
-  "Boa, captei essa nuance entre as duas. ",
-  "Interessante essa combinação! ",
-  "Entendi — você se identifica com mais de uma. ",
-  "Que rico ver essa mistura nas suas escolhas. ",
-  "Anotada a combinação. "
+  "Essa combinação diz bastante. ",
+  "Nuance captada — isso importa. ",
+  "A verdade costuma estar nesse meio-termo. ",
+  "Anotei as duas — faz sentido. ",
+  "Perfis reais raramente são uma coisa só. "
 ];
 
-// Reações antigas mantidas para compatibilidade
+// Compatibilidade
 var REACOES_POSITIVAS = REACOES_LETRA.concat(REACOES_TEXTO_LIVRE);
 
 var REACAO_COM_COMENTARIO = [
-  "Você comentou: [<<c>>] — isso enriquece bastante a análise. ",
-  "Adorei o contexto: [<<c>>]. ",
-  "Seu complemento fez toda a diferença: [<<c>>]. ",
-  "Captei essa observação: [<<c>>]. "
+  "Isso que você disse — [<<c>>] — entra direto na análise. ",
+  "Captei: [<<c>>]. Esse contexto importa. ",
+  "Anotei com destaque: [<<c>>]. ",
+  "Esse complemento muda o nível da análise: [<<c>>]. "
 ];
 
 var PHASE_TRANSITIONS = {
-  "Temperamento e Emoções": "Estamos avançando bem! Agora quero entrar em uma área que revela muito sobre quem você é: como você lida com emoções, pressão e situações que testam seu equilíbrio. Seja bem honesto — não há julgamentos aqui.",
-  "Dominância Cerebral": "Excelente. Agora vamos explorar algo fascinante: como o seu cérebro naturalmente prefere processar informações e resolver problemas. Isso vai ajudar a entender seu estilo de pensamento.",
-  "Inteligência Positiva": "Ótimo progresso! Agora vamos falar sobre resiliência e inteligência emocional — especificamente sobre como você lida com os desafios internos que todos nós enfrentamos.",
-  "Sabotadores Internos": "Chegamos à parte mais profunda da conversa. Vou te perguntar sobre padrões internos que todos temos — alguns nos ajudam, outros nos limitam. Aqui a honestidade é o que gera mais valor para você.",
-  "Perfil Sob Pressão": "Quase lá! Últimas perguntas — estas são sobre como você se comporta nas situações mais desafiadoras. É onde o perfil real de alguém realmente aparece."
+  "Temperamento e Emoções": "Seguindo. Agora a gente entra em como você realmente funciona sob pressão e com emoções no limite. Não no que você acha que deveria sentir — no que de fato acontece. Honestidade aqui vale ouro.",
+  "Dominância Cerebral": "Bom. Agora quero entender como o seu cérebro prefere naturalmente processar e resolver problemas. Isso revela muito sobre como você pensa, decide e lidera — mesmo quando você não percebe.",
+  "Inteligência Positiva": "Avançando. Essa parte é sobre o quanto você consegue manter clareza e equilíbrio quando o jogo fica difícil. É aqui que a maioria dos líderes perde performance sem entender por quê.",
+  "Sabotadores Internos": "Aqui a conversa fica mais densa. Vou te perguntar sobre padrões automáticos que operam dentro de você — às vezes sem que você perceba. Todo mundo tem. A diferença está em reconhecê-los. Seja direto.",
+  "Perfil Sob Pressão": "Últimas perguntas. Essas são sobre o que aparece quando o ambiente pressiona de verdade. É onde o perfil real de um líder se mostra — não o que ele planeja fazer, mas o que ele faz de fato."
 };
 
 function addBubble(type, html, noAnim) {
@@ -923,86 +933,107 @@ function sendAns() {
   var validLetters = LBLS.slice(0, maxOpts);
 
   // ═════════════════════════════════════════════════════════════
-  // PARSER V2 — letra(s), texto livre, combinações até 4 letras
+  // SEPARAÇÃO PRIMEIRO: resposta vs comentário
+  // Tudo ANTES do traço (— - –) = parte da escolha de alternativas
+  // Tudo DEPOIS do traço = comentário para IA (NÃO afeta score)
+  // Ex: "A — acho que D e C" → escolha=A, comentário="acho que D e C"
+  // Ex: "C — muito forte, e estou explorando mais a D" → escolha=C, comentário=resto
   // ═════════════════════════════════════════════════════════════
-  var letters = [];      // índices das alternativas escolhidas (ordem importa: 1ª = principal)
-  var comentario = "";
+  var sepIdx = -1;
+  // Procura travessão longo, meia-risca, ou " - " (traço com espaços)
+  var sepMatch = raw.match(/^([A-Fa-f][^—–\-]*?)[\s]*([\u2014\u2013]|(?:\s\-\s))(.*)$/);
+  if (sepMatch) {
+    sepIdx = raw.indexOf(sepMatch[2].trim() !== '-' ? sepMatch[2] : ' - ');
+  }
+  // Fallback: qualquer — ou – em qualquer posição
+  if (sepIdx < 0) {
+    var idx1 = raw.indexOf('\u2014');
+    var idx2 = raw.indexOf('\u2013');
+    if (idx1 >= 0) sepIdx = idx1;
+    else if (idx2 >= 0) sepIdx = idx2;
+  }
+
+  var respostaParte, comentarioParte;
+  if (sepIdx > 0) {
+    respostaParte  = raw.substring(0, sepIdx).trim();
+    comentarioParte = raw.substring(sepIdx + 1).replace(/^[\u2014\u2013\-\s]+/, '').trim();
+  } else {
+    respostaParte  = raw;
+    comentarioParte = '';
+  }
+
+  // ═════════════════════════════════════════════════════════════
+  // PARSER — busca letras APENAS em respostaParte
+  // ═════════════════════════════════════════════════════════════
+  var letters = [];
+  var comentario = comentarioParte;
   var textoLivre = false;
 
-  // 1. Padrão "ENTRE A E B" (mais antigo e específico)
-  var entreMatch = raw.match(/entre\s+(?:a\s+)?(?:letra\s+)?([A-Fa-f])\s+e\s+(?:a\s+)?(?:letra\s+)?([A-Fa-f])/i);
+  // 1. Padrão "ENTRE A E B"
+  var entreMatch = respostaParte.match(/entre\s+(?:a\s+)?(?:letra\s+)?([A-Fa-f])\s+e\s+(?:a\s+)?(?:letra\s+)?([A-Fa-f])/i);
   if (entreMatch) {
     [entreMatch[1], entreMatch[2]].forEach(function(L){
       var i = LBLS.indexOf(L.toUpperCase());
       if (i >= 0 && i < maxOpts && letters.indexOf(i) < 0) letters.push(i);
     });
-    comentario = raw.replace(entreMatch[0],"").trim();
   }
 
-  // 2. Padrão "MAIS PARA X" / "PRIMEIRO QUE VEM É X" / "PRINCIPALMENTE X"
-  //    → quando encontrado, X é a PRINCIPAL (entra primeiro nas letters)
-  var primaryMatch = raw.match(/(?:primeiro\s+que\s+vem\s+(?:é\s+)?|primeiramente\s+|principalmente\s+|mais\s+para\s+|sobretudo\s+|antes\s+de\s+tudo\s+)(?:a\s+)?(?:letra\s+)?([A-Fa-f])\b/i);
+  // 2. Padrão "MAIS PARA X" / "PRINCIPALMENTE X" — X é a principal
+  var primaryMatch = respostaParte.match(/(?:primeiro\s+que\s+vem\s+(?:é\s+)?|primeiramente\s+|principalmente\s+|mais\s+para\s+|sobretudo\s+)(?:a\s+)?(?:letra\s+)?([A-Fa-f])\b/i);
   if (primaryMatch && letters.length === 0) {
     var idxP = LBLS.indexOf(primaryMatch[1].toUpperCase());
     if (idxP >= 0 && idxP < maxOpts) letters.push(idxP);
   }
 
-  // 3. Captura de letras no início — até 4 letras separadas por conectores
+  // 3. Sequência de letras na respostaParte (até 3)
   if (letters.length === 0) {
-    // Regex que capta sequência: letra + opcional conector + letra + ... (até 4)
-    var seqMatch = raw.match(/^\s*([A-Fa-f])(?:[\s,;]+(?:e\s+|ou\s+|também\s+|e\s+também\s+|\+\s*|\/\s*)?(?:letra\s+)?([A-Fa-f]))?(?:[\s,;]+(?:e\s+|ou\s+|também\s+|e\s+também\s+|\+\s*|\/\s*)?(?:letra\s+)?([A-Fa-f]))?(?:[\s,;]+(?:e\s+|ou\s+|também\s+|e\s+também\s+|\+\s*|\/\s*)?(?:letra\s+)?([A-Fa-f]))?/i);
+    var seqMatch = respostaParte.match(/^\s*([A-Fa-f])(?:[\s,;eE]+(?:letra\s+)?([A-Fa-f]))?(?:[\s,;eE]+(?:letra\s+)?([A-Fa-f]))?/i);
     if (seqMatch) {
-      for (var k = 1; k <= 4; k++) {
+      for (var k = 1; k <= 3; k++) {
         if (seqMatch[k]) {
           var idxk = LBLS.indexOf(seqMatch[k].toUpperCase());
           if (idxk >= 0 && idxk < maxOpts && letters.indexOf(idxk) < 0) letters.push(idxk);
         }
       }
-      comentario = raw.slice(seqMatch[0].length).replace(/^[\s\-\u2013\u2014:,.]*/,"").trim();
     }
-  } else if (!comentario) {
-    // Veio do primaryMatch — pega o resto como comentário
-    comentario = raw.replace(primaryMatch[0],"").trim();
   }
 
-  // 4. Texto livre — nenhuma letra encontrada, faz match semântico
+  // 4. Texto livre — nenhuma letra encontrada
   if (letters.length === 0) {
     textoLivre = true;
-    var rawLower = raw.toLowerCase();
+    var rawAll = raw.toLowerCase();
+    var bestIdx = -1, bestScore = 0;
+    for (var oi = 0; oi < maxOpts; oi++) {
+      var optWords = q.opts[oi].toLowerCase().split(/\s+/);
+      var score = 0;
+      optWords.forEach(function(w){ if (w.length > 3 && rawAll.indexOf(w) >= 0) score++; });
+      if (score > bestScore) { bestScore = score; bestIdx = oi; }
+    }
+    if (bestIdx >= 0) letters.push(bestIdx);
+    else letters.push(Math.floor(maxOpts / 2));
+    comentario = raw;
 
-    // ── Análise semântica de indicadores de sabotadores no texto livre ──
-    var SAB_KEYWORDS_INLINE = {
-      Hiperanalitico: ["analiso demais","paralisia","não consigo decidir","fico travado","muito análise","preciso de certeza"],
-      Juiz: ["me cobro","critico","duro comigo","não me perdoo","muito exigente","severo comigo"],
-      Controlador: ["preciso controlar","difícil confiar","monitoro","interfiro","ansioso quando delego"],
-      Realizador: ["não desligo","pendências","não consigo parar","sempre trabalhando","difícil descansar"],
-      Esquivador: ["evito","não falo","fico quieto","prefiro absorver","não confronto","guardo"],
-      Prestativo: ["não digo não","sinto culpa","responsável pelos outros","colo ao outros primeiro"]
+    // Detecta sabotadores no texto livre
+    var SAB_KW = {
+      Hiperanalitico:["analiso demais","paralisia","não consigo decidir","fico travado","preciso de certeza"],
+      Juiz:["me cobro","crítico comigo","duro comigo","não me perdoo","muito exigente"],
+      Controlador:["preciso controlar","difícil confiar","monitoro","interfiro","ansioso ao delegar"],
+      Realizador:["não desligo","não consigo parar","difícil descansar","pendências na cabeça"],
+      Esquivador:["evito conflito","não falo","fico quieto","prefiro absorver","não confronto"],
+      Prestativo:["não digo não","sinto culpa","responsável pelos outros","cuido dos outros primeiro"]
     };
-    Object.keys(SAB_KEYWORDS_INLINE).forEach(function(sab){
-      SAB_KEYWORDS_INLINE[sab].forEach(function(kw){
-        if (rawLower.indexOf(kw) >= 0) {
-          // Registrar como indicador semântico para uso na IA
+    Object.keys(SAB_KW).forEach(function(sab){
+      SAB_KW[sab].forEach(function(kw){
+        if (rawAll.indexOf(kw) >= 0) {
           if (!STATE.semIndicadores) STATE.semIndicadores = {};
           if (!STATE.semIndicadores[sab]) STATE.semIndicadores[sab] = 0;
           STATE.semIndicadores[sab]++;
         }
       });
     });
-
-    var bestIdx = -1, bestScore = 0;
-    for (var oi = 0; oi < maxOpts; oi++) {
-      var optWords = q.opts[oi].toLowerCase().split(/\s+/);
-      var score = 0;
-      optWords.forEach(function(w){ if (w.length > 3 && rawLower.indexOf(w) >= 0) score++; });
-      if (score > bestScore) { bestScore = score; bestIdx = oi; }
-    }
-    if (bestIdx >= 0) letters.push(bestIdx);
-    else letters.push(Math.floor(maxOpts / 2)); // fallback ao meio
-    comentario = raw;
   }
 
-  // 5. Limpeza final do comentário
+  // 5. Limpeza do comentário
   comentario = comentario.replace(/^[\s\-\u2013\u2014:,.]*/,"").trim();
 
   // ═════════════════════════════════════════════════════════════
@@ -1373,17 +1404,19 @@ function _doCompute() {
 }
 
 // ═══════════════════════════════════════════════════════════════
-// EXIBIR RESULTADO — participante vê gráficos, depois tela de obrigado
+// EXIBIR RESULTADO — participante vê apenas tela de agradecimento
+// Gráficos e interpretação ficam exclusivos no painel admin
 // ═══════════════════════════════════════════════════════════════
 function showResult(r) {
-  var scroll = document.getElementById("rScroll");
-  scroll.innerHTML = buildResultHTML(r);
+  // Personalizar nome na tela de agradecimento
+  var nome = (r.name || "").split(" ")[0] || "você";
+  var el = document.getElementById("rThankName");
+  if (el) el.textContent = "Obrigado, " + nome + "!";
   showPage("pgResult");
-  setTimeout(function() { animateBars(); }, 300);
-  // Auto-enviar ao Firebase em background + gerar IA admin
+  // Gerar análise IA em background para o admin
   setTimeout(function() {
     gerarAIAdmin(r);
-  }, 1000);
+  }, 1200);
 }
 
 function buildResultHTML(r) {
@@ -1614,54 +1647,45 @@ function gerarAIAdmin(r) {
   var comentStr = comentarios.length > 0 ? comentarios.join("\n") : "Participante não adicionou comentários escritos.";
 
   var prompt =
-    "Você é um especialista comportamental sênior com domínio profundo das metodologias de Inteligência Positiva (Shirzad Chamine) e " + instrSegundo + ".\n\n" +
+    "Você é o sistema de análise comportamental da Vizzio Training — empresa especializada em Gestão, Liderança e Educação Corporativa, fundada por William Soares e Thiara Araújo.\n\n" +
+    "MISSÃO VIZZIO: Acelerar o crescimento de pessoas, líderes e times através da ampliação de percepções.\n" +
+    "TOM: Direto, provocador, sem rodeios. Frases curtas que impactam. Linguagem do empreendedor brasileiro. Vocabulário Vizzio: clareza, autonomia, alto rendimento, transformação, cultura, resultado.\n\n" +
 
     "═══ DEFINIÇÃO METODOLÓGICA OBRIGATÓRIA ═══\n" +
-    "SABOTADORES (Inteligência Positiva — Shirzad Chamine):\n" +
-    "Sabotadores são PADRÕES AUTOMÁTICOS E LIMITANTES do sistema nervoso. Eles NÃO são traços de personalidade nem competências. São respostas automáticas que geram sofrimento desnecessário, prejudicam tomada de decisão e deterioram relacionamentos. Um sabotador alto (acima de 60%) significa que esse padrão limitante está ATIVO e operando — mesmo que a pessoa tenha desenvolvido habilidades conscientes para contrabalancear.\n" +
-    "ATENÇÃO CRÍTICA: Nunca descreva um sabotador como força ou competência. Um Realizador alto NÃO significa 'pessoa comprometida'. Significa que a pessoa sofre com a incapacidade de desligar e carrega excesso de produtividade de forma automática e limitante. Um Juiz alto NÃO significa 'alto padrão de qualidade'. Significa que a autocrítica é excessiva e automática.\n\n" +
+    "SABOTADORES: São PADRÕES AUTOMÁTICOS E LIMITANTES — não competências, não traços. Score acima de 60% = padrão ATIVO. NUNCA como força. Realizador alto = sofre para desligar. Juiz alto = autocrítica excessiva. Controlador alto = ansiedade ao delegar. Hiperanálítico alto = paralisia por análise.\n\n" +
 
-    "ESCOPO DA ANÁLISE: " + ttInfo.short + "\n\n" +
-
+    "ESCOPO: " + ttInfo.short + "\n\n" +
     "PERFIL:\n" +
     "Nome: " + r.name + " | Cargo: " + (r.role||"—") + " | Empresa: " + (r.co||"—") + "\n" +
     perfilLinhas.join("\n") + "\n" +
     "Sabotadores detalhados: " + sabStr + semStr + "\n\n" +
 
-    "RESPOSTAS ESCRITAS DO PARTICIPANTE (use para enriquecer a análise):\n" + comentStr + "\n\n" +
+    "RESPOSTAS ESCRITAS DO PARTICIPANTE:\n" + comentStr + "\n\n" +
 
     "REGRAS:\n" +
-    "1. Nunca repita a mesma informação em seções diferentes\n" +
-    "2. Sabotadores = padrão limitante automático. Nunca descreva como força\n" +
-    "3. As forças da pessoa vêm do perfil " + instrSegundo + " — não dos sabotadores\n" +
-    "4. Se o participante escreveu texto que contradiz um score, sinalize isso\n" +
-    "5. Sem asteriscos, sem bullets, sem markdown — texto corrido\n" +
-    "6. Complete TODAS as seções inteiramente\n\n" +
+    "1. Sabotadores = limitantes — NUNCA como força\n" +
+    "2. Forças vêm do " + instrSegundo + ", não dos sabotadores\n" +
+    "3. Se texto contradiz score, sinalize\n" +
+    "4. Sem asteriscos, bullets ou markdown — texto corrido\n" +
+    "5. Complete TODAS as seções\n" +
+    "6. Use vocabulário Vizzio: clareza, autonomia, resultado, alto rendimento, cultura, transformação\n\n" +
 
-    "ESTRUTURA — parágrafos corridos:\n\n" +
-
+    "ESTRUTURA — parágrafos corridos, tom direto:\n\n" +
     "🧠 SÍNTESE DO PERFIL\n" +
-    "2-3 frases. Descreva o padrão central desta pessoa a partir do " + instrSegundo + " dominante. Em seguida, identifique como os sabotadores " + sabTop2 + " operam como interferência automática nesse perfil.\n\n" +
-
+    "2-3 frases. Perfil " + instrSegundo + " dominante + como " + sabTop2 + " operam como interferência automática. Direto ao ponto.\n\n" +
     "💪 RECURSOS GENUÍNOS\n" +
-    "3 forças reais desta pessoa baseadas no perfil " + instrSegundo + " (NÃO nos sabotadores). Para cada uma, explique o mecanismo em 1 frase.\n\n" +
-
+    "3 forças reais baseadas em " + instrSegundo + " (NÃO nos sabotadores). Mecanismo de cada uma em 1 frase.\n\n" +
     "⚡ PADRÃO DOS SABOTADORES\n" +
-    "Como " + sabTop2 + " se manifestam como autossabotagem nesta pessoa específica. Cite situações concretas onde esse padrão limitante aparece automaticamente — no trabalho, nas decisões, nas relações. Seja específico: o que a pessoa faz ou sente que é produto do sabotador, não da personalidade.\n\n" +
-
+    "Como " + sabTop2 + " se manifestam como autossabotagem. Situações concretas — decisões, relações, entregas. O que essa pessoa faz ou sente que é produto do sabotador, não da personalidade.\n\n" +
     "🔥 SOB PRESSÃO\n" +
-    "2 frases: como os sabotadores ativos se intensificam sob pressão e o que os outros percebem que a pessoa não percebe sobre si mesma nessas situações.\n\n" +
-
+    "Como os sabotadores se intensificam quando o jogo fica difícil. O que os outros percebem que essa pessoa não vê.\n\n" +
     "🤝 NOS RELACIONAMENTOS\n" +
-    "2 frases: como o perfil " + instrSegundo + " define o estilo relacional e onde os sabotadores interferem nessa dinâmica sem que a pessoa perceba.\n\n" +
-
+    "Estilo relacional do " + instrSegundo + " e onde os sabotadores criam atrito sem que a pessoa perceba.\n\n" +
     "🎯 COMO TRABALHAR COM ESSA PESSOA\n" +
-    "3 recomendações práticas e específicas numeradas (1, 2, 3) para o consultor ou gestor. Cada uma em 2-3 frases. Devem levar em conta tanto o perfil " + instrSegundo + " quanto os sabotadores ativos.\n\n" +
-
+    "3 recomendações práticas numeradas (1, 2, 3). Cada uma em 2-3 frases. Aplicáveis, do jeito que a Vizzio usa no campo.\n\n" +
     "💡 SÍNTESE FINAL\n" +
-    "2-3 frases. O padrão central desta pessoa: o que o " + instrSegundo + " oferece como recurso genuíno, e como os sabotadores " + sabTop2 + " limitam a expressão plena desse recurso.\n\n" +
-
-    "Complete TODAS as 7 seções. Máximo 550 palavras.";
+    "O que o " + instrSegundo + " oferece como recurso genuíno e como " + sabTop2 + " limitam isso. Feche com frase de impacto no estilo Vizzio.\n\n" +
+    "Máximo 550 palavras. Complete TODAS as 7 seções.";
 
   callGroq(prompt, function(txt) {
     if (!txt) return;
@@ -2007,7 +2031,9 @@ function _gerarEMostrar(i) {
   var comentStr = comentarios.length > 0 ? comentarios.join("\n") : "Sem comentários adicionais.";
 
   var prompt =
-    "Você é um especialista comportamental sênior com domínio profundo das metodologias de Inteligência Positiva (Shirzad Chamine) e " + instrSegundo + ".\n\n" +
+    "Você é o sistema de análise comportamental da Vizzio Training — empresa especializada em Gestão, Liderança e Educação Corporativa, fundada por William Soares e Thiara Araújo.\n\n" +
+    "MISSÃO VIZZIO: Acelerar o crescimento de pessoas, líderes e times através da ampliação de percepções.\n" +
+    "TOM DO RELATÓRIO: Direto, provocador, sem rodeios. Escreva como um especialista que conhece a dor do líder. Frases curtas que impactam. Linguagem do empreendedor brasileiro — próxima, mas profissional. Use as palavras da Vizzio: clareza, autonomia, alto rendimento, transformação, cultura, resultado.\n\n" +
 
     "═══ DEFINIÇÃO METODOLÓGICA OBRIGATÓRIA ═══\n" +
     "SABOTADORES: São PADRÕES AUTOMÁTICOS E LIMITANTES — não traços de personalidade, não competências. Score acima de 60% significa padrão ATIVO e limitante. NUNCA descreva sabotador como força. Realizador alto = sofre para desligar. Juiz alto = autocrítica excessiva automática. Controlador alto = ansiedade real ao delegar. Hiperanálítico alto = paralisia por análise genuína.\n\n" +
@@ -2024,23 +2050,24 @@ function _gerarEMostrar(i) {
     "2. Forças vêm do " + instrSegundo + ", não dos sabotadores\n" +
     "3. Se texto contradiz score, sinalize\n" +
     "4. Sem asteriscos, bullets ou markdown — texto corrido\n" +
-    "5. Complete TODAS as seções\n\n" +
+    "5. Complete TODAS as seções\n" +
+    "6. Use vocabulário da Vizzio: clareza, autonomia, resultado, alto rendimento, cultura, transformação\n\n" +
 
-    "ESTRUTURA — parágrafos corridos:\n\n" +
+    "ESTRUTURA — parágrafos corridos, tom direto e provocador:\n\n" +
     "🧠 SÍNTESE DO PERFIL\n" +
-    "2-3 frases. Perfil " + instrSegundo + " dominante + como " + sabTop2 + " interferem automaticamente nesse perfil.\n\n" +
+    "2-3 frases. Perfil " + instrSegundo + " dominante + como " + sabTop2 + " interferem automaticamente. Seja direto — nada de suavizar.\n\n" +
     "💪 RECURSOS GENUÍNOS\n" +
-    "3 forças baseadas em " + instrSegundo + " (NÃO nos sabotadores). Mecanismo de cada uma em 1 frase.\n\n" +
+    "3 forças reais baseadas em " + instrSegundo + " (NÃO nos sabotadores). Para cada uma, o mecanismo em 1 frase curta e direta.\n\n" +
     "⚡ PADRÃO DOS SABOTADORES\n" +
-    "Como " + sabTop2 + " se manifestam como autossabotagem. Situações concretas — no trabalho, decisões, relações.\n\n" +
+    "Como " + sabTop2 + " se manifestam como autossabotagem nesta pessoa. Situações concretas — decisões, relações, entregas. Seja específico: o que essa pessoa faz ou sente que é produto do sabotador, não da personalidade.\n\n" +
     "🔥 SOB PRESSÃO\n" +
-    "Como os sabotadores se intensificam sob pressão e o que os outros percebem que a pessoa não percebe.\n\n" +
+    "Como os sabotadores se intensificam quando o jogo fica difícil. O que os outros percebem que essa pessoa não vê em si mesma.\n\n" +
     "🤝 NOS RELACIONAMENTOS\n" +
-    "Estilo relacional do " + instrSegundo + " e onde os sabotadores interferem sem que a pessoa perceba.\n\n" +
+    "Estilo relacional do " + instrSegundo + " e onde os sabotadores criam atrito sem que a pessoa perceba.\n\n" +
     "🎯 COMO TRABALHAR COM ESSA PESSOA\n" +
-    "3 recomendações práticas numeradas (1, 2, 3). Cada uma em 2-3 frases.\n\n" +
+    "3 recomendações práticas numeradas (1, 2, 3). Cada uma em 2-3 frases. Específicas, aplicáveis, do jeito que a Vizzio usa no campo.\n\n" +
     "💡 SÍNTESE FINAL\n" +
-    "O que o " + instrSegundo + " oferece como recurso genuíno e como " + sabTop2 + " limitam a expressão plena desse recurso.\n\n" +
+    "O que o " + instrSegundo + " oferece como recurso genuíno e como " + sabTop2 + " limitam a expressão plena disso. Feche com uma frase de impacto no estilo Vizzio.\n\n" +
     "Máximo 550 palavras. Complete TODAS as 7 seções.";
 
   // Chamar IA e atualizar box diretamente
@@ -2601,13 +2628,16 @@ function startAssessment() {
   showTyping(function(){
     addBubble("ai",
       '<span class="ai-lbl">Vizzio</span>' +
-      'Olá, <strong>' + primeiroNome + '</strong>! 👋 Seja bem-vindo(a) ao seu Assessment Comportamental Vizzio Training.<br><br>' +
-      'Vou conduzir uma conversa para mapear seu perfil comportamental. Serão algumas situações do cotidiano — ' +
-      'responda com o que vier naturalmente. <strong>Não existem respostas certas ou erradas.</strong><br><br>' +
-      'Para cada situação, leia as alternativas e <strong>digite a letra da sua escolha</strong> no campo abaixo. ' +
-      'Se quiser, adicione um comentário — por exemplo: <em>"A — costumo agir assim especialmente sob pressão"</em>. ' +
-      'Pode também dizer que está <em>"entre A e C"</em> se sentir que se encaixa em duas.<br><br>' +
-      'Pronto para começar? 😊'
+      '<strong>' + primeiroNome + '</strong>, vou direto ao ponto.<br><br>' +
+      'Esse assessment foi desenvolvido para mapear como você realmente funciona — ' +
+      'não o que você gostaria de ser, mas o que você é de fato. ' +
+      'Quem conhece seu próprio perfil tem uma vantagem real sobre quem não conhece.<br><br>' +
+      'Vou apresentar situações do seu dia a dia. <strong>Responda com o que vier primeiro</strong> — ' +
+      'sem filtro, sem o que "seria mais correto". ' +
+      'Digite a <strong>letra da sua escolha</strong>. Se quiser adicionar contexto, escreva depois de um traço: ' +
+      '<em>"A — especialmente quando estou sob pressão"</em>. ' +
+      'Se estiver entre duas, pode dizer <em>"A e C"</em>.<br><br>' +
+      'Clareza começa aqui. Vamos?'
     );
     setTimeout(function(){
       renderCurrentQuestion();
