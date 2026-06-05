@@ -437,26 +437,16 @@ tr:last-child td{border-bottom:none}
 <!-- RESULTADO PARTICIPANTE -->
 <div class="page" id="pgResult">
   <div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 24px;text-align:center;background:var(--bg)">
-    <svg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:28px">
+    <svg width="72" height="72" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:24px">
       <circle cx="40" cy="40" r="38" fill="rgba(0,212,200,.1)" stroke="var(--teal)" stroke-width="2"/>
       <path d="M24 40 L35 51 L56 29" stroke="var(--teal)" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
     </svg>
-    <div style="font-size:12px;font-weight:700;color:var(--teal);letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px">Assessment Concluído</div>
-    <div id="rThankName" style="font-size:26px;font-weight:900;color:var(--text);margin-bottom:12px">Obrigado!</div>
-    <div style="font-size:15px;color:var(--muted);line-height:1.8;max-width:420px;margin:0 auto 28px">
+    <div style="font-size:11px;font-weight:700;color:var(--teal);letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px">Assessment Concluído</div>
+    <div id="rThankName" style="font-size:26px;font-weight:900;color:var(--text);margin-bottom:14px">Obrigado!</div>
+    <div style="font-size:15px;color:var(--muted);line-height:1.8;max-width:400px;margin:0 auto">
       Suas respostas foram registradas com sucesso.<br>
       Em breve nossa equipe entrará em contato<br>com os resultados da sua avaliação.
     </div>
-    <div style="padding:20px 28px;background:var(--card);border:1px solid var(--border);border-radius:14px;max-width:380px;margin:0 auto 32px">
-      <div style="font-size:11px;font-weight:700;color:var(--teal);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px">Vizzio Training</div>
-      <div style="font-size:13px;color:var(--text);font-weight:700;margin-bottom:6px">"Seu negócio cresceu.<br>Seu time não acompanhou.<br>A gente resolve isso."</div>
-      <div style="font-size:11px;color:var(--muted);margin-top:10px">Gestão · Liderança · Cultura Organizacional</div>
-    </div>
-    <a href="https://vizziotraining.com.br/conversarnowhats" target="_blank"
-       style="display:inline-block;background:var(--teal);color:#000;font-weight:800;font-size:13px;padding:14px 28px;border-radius:10px;text-decoration:none;letter-spacing:.04em;margin-bottom:32px">
-      Agendar Diagnóstico Empresarial →
-    </a>
-    <div style="font-size:11px;color:var(--subtle)">Desenvolvido por <strong style="color:var(--muted)">Tríade Resultados</strong> · Alexandre Amorim</div>
   </div>
 </div>
 
@@ -1311,6 +1301,18 @@ function _doCompute() {
     });
   }
 
+  // ── Regra de coerência: Hiperanálítico vs dimensão analítica ──
+  // Se a pessoa é BAIXA em análise (NED-A < 22% ou DISC-C < 22%),
+  // o Hiperanálítico NÃO pode ser o sabotador dominante — é metodologicamente incoerente.
+  // Hiperanálítico = sofre por EXCESSO de análise. Quem é naturalmente pouco analítico não tem esse padrão.
+  var analiseBaixa = false;
+  if (nedTotal > 0 && nedFinal.NA < 22) analiseBaixa = true;
+  if (discTotal > 0 && discFinal.C < 22) analiseBaixa = true;
+  if (analiseBaixa && sabFinal.Hiperanalitico > 50) {
+    sabFinal.Hiperanalitico = Math.round(sabFinal.Hiperanalitico * 0.55);
+    console.log("[Vizzio] Coerência: Hiperanálítico reduzido — dimensão analítica baixa no perfil.");
+  }
+
   // Garantir que sabotadores primários de Juiz+Realizador sejam consistentes
   // (pela metodologia de Chamine, quem tem Juiz alto quase sempre tem Realizador ou Hiperanalítico também)
   if (sabFinal.Juiz > 70 && sabFinal.Realizador < 40 && sabFinal.Hiperanalitico < 40) {
@@ -2086,9 +2088,14 @@ function _gerarEMostrar(i) {
     if (!txt || txt.trim().length < 50) {
       var box2 = document.getElementById("ainterp_" + i);
       if (box2) box2.innerHTML =
-        '<div class="ibox"><div style="color:var(--amber);padding:14px;font-size:13px">' +
-        '⚠️ A IA não retornou resposta. Verifique se a chave está correta e tente novamente.' +
-        '</div></div>';
+        '<div class="ibox" style="padding:16px">' +
+        '<div style="color:var(--amber);font-size:13px;font-weight:700;margin-bottom:10px">⚠️ IA não respondeu</div>' +
+        '<div style="font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:12px">' +
+        'Possível causa: <b style="color:var(--text)">ANTHROPIC_API_KEY</b> não configurada no Vercel do projeto atual.<br>' +
+        'Acesse: Vercel → projeto → Settings → Environment Variables → adicione <code>ANTHROPIC_API_KEY</code> → Redeploy.' +
+        '</div>' +
+        '<button class="btn" onclick="_gerarEMostrar(' + i + ')">↺ Tentar novamente</button>' +
+        '</div>';
       return;
     }
     // Salvar
@@ -2175,11 +2182,10 @@ function buildAdminView(r, i) {
   if (r.adminAI) {
     h += renderAdminAI(r.adminAI);
   } else {
-    h += '<div class="ibox"><div class="ibox-hdr"><div style="font-size:20px">🧠</div>';
-    h += '<div><div style="font-weight:700;color:var(--teal);font-size:14px">Análise Interpretativa</div>';
-    h += '<div style="font-size:11px;color:var(--muted);margin-top:2px">Exclusivo para o consultor — correlaciona apenas ' + ttInfo.short + '</div></div></div>';
-    h += '<button class="btn" style="width:100%" onclick="gerarInterpAdmin('+i+')">Gerar interpretação →</button>';
-    h += '<div id="ainterpLoad_'+i+'" style="display:none;text-align:center;padding:16px;color:var(--muted);font-size:13px">Gerando análise com IA...</div>';
+    // Mostrar spinner - geração automática será disparada via setTimeout no viewResult
+    h += '<div class="ibox" style="text-align:center;padding:20px">';
+    h += '<div class="spinner" style="width:28px;height:28px;margin:0 auto 10px"></div>';
+    h += '<div style="color:var(--muted);font-size:13px">Gerando análise com IA...</div>';
     h += '</div>';
   }
   h += '</div>';
@@ -2607,12 +2613,10 @@ function startAssessment() {
       '<strong>' + primeiroNome + '</strong>, vou direto ao ponto.<br><br>' +
       'Esse assessment foi desenvolvido pela Vizzio Training com base em 8 anos de metodologia aplicada em mais de 300 empresários e 40.000 profissionais. ' +
       'Ele vai mapear como você realmente funciona — não o que você gostaria de ser, o que você é de fato.<br><br>' +
-      'Quem conhece seu próprio perfil tem uma vantagem real sobre quem não conhece. ' +
-      '<strong>Responda com o que vier primeiro</strong>, sem filtro. ' +
-      'Digite a <strong>letra da sua escolha</strong>. Se quiser adicionar contexto, escreva depois de um traço: ' +
-      '<em>"A — especialmente quando estou sob pressão"</em>. ' +
-      'Se estiver entre duas alternativas, pode dizer <em>"A e C"</em>.<br><br>' +
-      'Clareza começa aqui. Vamos?'
+      'Para cada situação, <strong>clique em uma ou duas opções</strong> que mais combinam com você. ' +
+      'Se quiser adicionar contexto, escreva no campo de comentário. ' +
+      'Pode clicar em uma, em duas, ou apenas escrever um comentário.<br><br>' +
+      'Seja honesto — aqui não existe certo ou errado. Clareza começa aqui. Vamos?'
     );
     setTimeout(function(){
       renderCurrentQuestion();
