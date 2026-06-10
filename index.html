@@ -572,6 +572,27 @@ var NED_DESC={
 var SAB_NAMES={Juiz:"Juiz Interno",Controlador:"Controlador",Realizador:"Realizador",Esquivador:"Esquivador",Hiperanalitico:"Hiperanálítico",Prestativo:"Prestativo"};
 
 // ═══════════════════════════════════════════════════════════════
+// METODOLOGIA DOS SABOTADORES — fiel a Shirzad Chamine (Inteligência Positiva)
+// Texto injetado nos prompts da IA para garantir precisão metodológica
+// ═══════════════════════════════════════════════════════════════
+var METODOLOGIA_SABOTADORES =
+"═══ FUNDAMENTO METODOLÓGICO — SABOTADORES (Shirzad Chamine, Inteligência Positiva) ═══\n" +
+"Sabotadores são PADRÕES MENTAIS AUTOMÁTICOS E LIMITANTES — vozes internas, hábitos de pensamento, emoção e reação que se formaram na infância como mecanismos de sobrevivência e que hoje atrapalham, drenam energia e comprometem decisões, bem-estar e relações. NÃO são traços de personalidade nem competências. NUNCA descreva um sabotador como força.\n\n" +
+"O JUIZ é o sabotador MESTRE — todos o têm. Ele atua em TRÊS FRENTES e isso DEVE ser distinguido na análise:\n" +
+"1) Crítico de SI MESMO: rumina os próprios erros, autocrítica dura, culpa, sensação de não ser suficiente.\n" +
+"2) Crítico dos OUTROS: foca no que os outros erram, compara, julga, gera conflito nas relações.\n" +
+"3) Crítico das CIRCUNSTÂNCIAS: culpa as condições externas, a sorte, o contexto; acredita que estaria bem 'se as circunstâncias fossem outras'.\n" +
+"Ao analisar um Juiz alto, identifique QUAL das três frentes predomina nas respostas da pessoa — não trate como uma coisa só. O Juiz aciona os demais sabotadores, que agem como seus CÚMPLICES.\n\n" +
+"DEFINIÇÕES PRECISAS DE CADA SABOTADOR (use exatamente estes significados):\n" +
+"• Juiz Interno (Crítico): encontra defeitos em si, nos outros e nas circunstâncias. Gera culpa, ansiedade, vergalso e decepção. É o sabotador universal.\n" +
+"• Controlador: necessidade ansiosa de controlar pessoas e situações; desconforto real ao delegar ou ao ver algo conduzido de outro jeito.\n" +
+"• Realizador (Hiper-realizador): vincula o próprio valor ao desempenho e às conquistas; dependência de produtividade; dificuldade de desligar; relações e emoções ficam em segundo plano.\n" +
+"• Esquivador (Esquivo): evita conflito e desconforto; foca só no agradável; adia problemas necessários; a tensão sufocada explode depois.\n" +
+"• Hiperanálítico (Hiper-racional): processa tudo pela lógica e pela razão, às vezes acima das emoções e relações; busca excessiva por dados e certeza; pode travar a decisão (paralisia por análise). NÃO confundir com competência analítica saudável.\n" +
+"• Prestativo: tenta ganhar aceitação e afeto ajudando, agradando e salvando os outros; dificuldade de dizer não; negligencia as próprias necessidades; culpa ao priorizar a si.\n\n" +
+"REGRA DE OURO: o sabotador descreve um CUSTO EMOCIONAL E COMPORTAMENTAL, não uma virtude. Se a pessoa demonstra a versão saudável (ex.: é analítica sem sofrer, ajuda sem culpa), o sabotador correspondente NÃO está ativo — não o relate como alto.\n";
+
+// ═══════════════════════════════════════════════════════════════
 // TIPOS DE TESTE — combinações comportamentais especializadas
 // ═══════════════════════════════════════════════════════════════
 var TEST_TYPES = {
@@ -613,9 +634,9 @@ var QQ_ALL = [
  multi:[{dim:"I",w:[3,4,2,2,2]},{dim:"C",w:[1,2,4,5,3]}]},
 
 {id:1,phase:"Perfil Comportamental",inst:"DISC",dim:"D",
- ctx:"Reunião importante. Você tem uma posição diferente da maioria. Todo mundo olha para você.",
+ ctx:"Numa conversa importante — pode ser com a família, amigos ou no trabalho — você tem uma posição diferente da maioria. Todos olham para você.",
  q:"O que você faz?",
- opts:["Defendo — não mudo de posição por pressão social","Convença os outros mostrando os benefícios do que acredito","Ouço com atenção antes de decidir se vale insistir","Peço dados — posição sem evidência é opinião","Cedo na forma mas mantenho a essência do que penso"],
+ opts:["Defendo minha posição — não mudo por pressão dos outros","Tento convencer mostrando os benefícios do que acredito","Ouço com atenção antes de decidir se vale insistir","Busco fatos e razões — posição sem fundamento é só opinião","Cedo na forma mas mantenho a essência do que penso"],
  score:[5,4,3,4,3],
  multi:[{dim:"I",w:[3,5,3,2,2]},{dim:"C",w:[2,2,3,5,3]}]},
 
@@ -628,32 +649,32 @@ var QQ_ALL = [
  multi:[{dim:"D",w:[4,2,2,4,2]},{dim:"S",w:[2,3,5,3,4]}]},
 
 {id:3,phase:"Perfil Comportamental",inst:"DISC",dim:"I",
- ctx:"Apresentação importante para um grupo que ainda não te conhece. Você na frente de todos.",
+ ctx:"Um evento social com pessoas que você ainda não conhece — uma festa, um encontro, um grupo novo.",
  q:"O que passa dentro de você nesse momento?",
- opts:["Me energizo — esse tipo de situação me ativa de verdade","Fico animado mas com um frio na barriga que passa quando começo","Me preparo muito porque ser pego de surpresa me incomoda","Prefiro o bastidor — apresentações não são onde me sinto forte","Me adapto, mas não é onde me sinto mais confortável e natural"],
+ opts:["Me energizo — conhecer gente nova e puxar conversa me ativa de verdade","Fico animado, com um leve frio na barriga que passa quando engato","Observo primeiro, me aproximo aos poucos de quem me parece mais acessível","Prefiro ficar mais reservado — ambientes assim não são onde me sinto forte","Me adapto, mas não é onde me sinto mais natural e confortável"],
  score:[5,4,3,1,2],
  multi:[{dim:"D",w:[4,3,3,2,2]},{dim:"S",w:[2,2,3,5,4]}]},
 
 // ── DISC — Estabilidade ───────────────────────────────────
 {id:4,phase:"Perfil Comportamental",inst:"DISC",dim:"S",
- ctx:"Seu gestor chega com uma mudança de última hora. Tudo que você planejou para a semana muda.",
+ ctx:"Um plano que você tinha — uma viagem, um compromisso, uma rotina — muda de repente por algo fora do seu controle.",
  q:"O que acontece dentro de você — não o que você demonstra, o que você sente de verdade?",
- opts:["Adapto rápido — mudança faz parte, não tem o que fazer","Fico um pouco incomodado mas me ajusto com relativa facilidade","Preciso de um tempo para processar — mudança brusca me desequilibra","Me irrito internamente, mesmo que consiga me controlar por fora","Depende do impacto da mudança no que já estava em curso"],
+ opts:["Adapto rápido — mudança faz parte da vida, não tem o que fazer","Fico um pouco incomodado mas me ajusto com relativa facilidade","Preciso de um tempo para processar — mudança brusca me desequilibra","Me irrito internamente, mesmo conseguindo me controlar por fora","Depende do impacto da mudança no que já estava planejado"],
  score:[2,3,5,2,4],
  multi:[{dim:"D",w:[4,3,2,4,3]},{dim:"C",w:[2,3,4,3,4]}]},
 
 {id:5,phase:"Perfil Comportamental",inst:"DISC",dim:"S",
- ctx:"Semana no limite. Muitas entregas. Alguém da equipe te pede ajuda urgente.",
+ ctx:"Um período cheio na sua vida, sem muito tempo livre. Alguém de quem você gosta pede sua ajuda de última hora.",
  q:"O que você faz?",
- opts:["Paro e ajudo — o time vem primeiro, sempre","Avalio rapidamente e, se der, ajudo com genuína vontade","Explico que não consigo agora, mas já marcamos para logo depois","Ajudo, mas deixo claro que espero reciprocidade","Depende de quem é e do quanto isso compromete o que eu tenho para entregar"],
+ opts:["Paro e ajudo — as pessoas que amo vêm primeiro, sempre","Avalio rapidamente e, se der, ajudo com genuína vontade","Explico que não consigo agora, mas combino para logo depois","Ajudo, mas deixo claro que espero a mesma coisa de volta","Depende de quem é e do quanto isso atrapalha o que já tenho"],
  score:[5,4,3,3,3],
  multi:[{dim:"I",w:[4,3,2,3,2]},{dim:"D",w:[2,3,4,3,3]}]},
 
 // ── DISC — Conformidade ───────────────────────────────────
 {id:6,phase:"Perfil Comportamental",inst:"DISC",dim:"C",
- ctx:"Você recebe uma tarefa nova, explicada pela metade. Tem espaço para improvisar ou para aprofundar.",
- q:"Como você naturalmente prefere encarar isso?",
- opts:["Começo logo e vou ajustando — aprendo fazendo","Entendo o contexto completo antes de qualquer ação","Monto um plano detalhado antes de dar o primeiro passo","Pesquiso referências e melhores práticas antes de agir","Faço um escopo mínimo e itero com feedback do caminho"],
+ ctx:"Você vai começar algo novo na sua vida — um projeto pessoal, um hobby, uma mudança. Há espaço para improvisar ou para se aprofundar.",
+ q:"Como você naturalmente prefere começar?",
+ opts:["Começo logo e vou ajustando — aprendo fazendo","Busco entender bem o contexto antes de qualquer passo","Monto um plano detalhado antes de dar o primeiro passo","Pesquiso, leio e busco referências antes de agir","Faço um teste pequeno e vou ajustando com o que aprendo"],
  score:[1,3,4,5,4],
  multi:[{dim:"D",w:[5,3,2,2,3]},{dim:"S",w:[2,4,5,4,4]}]},
 
@@ -666,16 +687,16 @@ var QQ_ALL = [
 
 // ── TEMPERAMENTOS ─────────────────────────────────────────
 {id:8,phase:"Temperamento e Emoções",inst:"TEMP",dim:"Co",
- ctx:"Imagine que algo dá errado no trabalho — um erro importante, um conflito, um atraso crítico.",
+ ctx:"Imagine que algo dá errado de verdade — pode ser na vida pessoal, em casa ou no trabalho. Um imprevisto, um conflito, uma frustração.",
  q:"Qual é sua primeira reação, de verdade?",
- opts:["Resolvo na hora e já parto pra próxima — não fico ruminando","Respiro fundo, processo e ajo com calma depois","Quero entender tudo que aconteceu antes de qualquer movimento","Fico irritado por um momento, mas me reorganizo rápido","Absorvo internamente — preciso de tempo para me reequilibrar"],
+ opts:["Parto pra ação, resolvo logo e sigo em frente — não fico remoendo","Respiro fundo, processo e ajo com calma depois","Quero entender tudo que aconteceu antes de qualquer movimento","Fico irritado num primeiro momento, mas me reorganizo rápido","Absorvo por dentro — preciso de tempo para me reequilibrar"],
  score:[4,3,3,5,2],
  multi:[{dim:"Sa",w:[3,4,3,2,2]},{dim:"Me",w:[2,3,5,2,4]},{dim:"Fl",w:[3,5,4,2,3]}]},
 
 {id:9,phase:"Temperamento e Emoções",inst:"TEMP",dim:"Sa",
- ctx:"É segunda-feira de manhã. A semana será intensa — muitas demandas, muita gente contando com você.",
- q:"Como você normalmente entra nessa semana?",
- opts:["Com energia — quanto mais movimento, mais me animo","Focado e determinado — vou executar o que precisa","Com cuidado — organizo tudo primeiro antes de agir","Relutante — preciso de um tempo para engatar no ritmo","Depende de como foi o fim de semana"],
+ ctx:"Começa um período intenso na sua vida — muitas demandas, muita gente contando com você, pouco tempo de sobra.",
+ q:"Como você normalmente entra nesse momento?",
+ opts:["Com energia e otimismo — quanto mais movimento, mais me animo","Focado e determinado — vou fazer o que precisa ser feito","Com cuidado — organizo tudo primeiro antes de agir","Com certa relutância — preciso de um tempo para engatar","Depende do meu estado emocional naquele momento"],
  score:[5,3,2,1,3],
  multi:[{dim:"Co",w:[4,4,2,2,3]},{dim:"Fl",w:[2,4,5,4,3]}]},
 
@@ -738,39 +759,39 @@ var QQ_ALL = [
 
 // ── SABOTADORES INTERNOS (Shirzad Chamine) ───────────────
 {id:17,phase:"Sabotadores Internos",inst:"SAB",dim:"Juiz",
- ctx:"Você não atingiu um resultado que esperava. Algo ficou abaixo do que considerava aceitável.",
- q:"O que acontece dentro de você nas horas seguintes a isso?",
- opts:["Uma voz interna muito dura toma conta — fico ruminando o erro com julgamento forte sobre mim mesmo","Percebo que me cobro além do razoável — demora para passar","Me cobro, mas consigo colocar em perspectiva e seguir com relativa rapidez","Reconheço o que aconteceu, aprendo e sigo — a autocrítica não persiste","Fico desconfortável por um momento mas me recupero bem"],
- score:[5,4,3,1,2]},
+ ctx:"Pense em situações da vida em geral — não só no trabalho, mas também em casa, nas relações e com você mesmo. Algo não saiu como esperado.",
+ q:"Para onde sua mente costuma ir primeiro, de forma mais automática?",
+ opts:["Para dentro: me culpo, fico remoendo o que eu fiz de errado, sou duro comigo","Para fora, nas pessoas: reparo no que o outro errou, no que poderia ter feito diferente","Para as circunstâncias: penso no quanto a situação, a sorte ou as condições foram injustas","Sinto o incômodo mas consigo equilibrar — vejo minha parte, a dos outros e o contexto","Aceito com naturalidade, aprendo e sigo — o julgamento não me domina"],
+ score:[5,5,4,2,1]},
 
 {id:18,phase:"Sabotadores Internos",inst:"SAB",dim:"Controlador",
- ctx:"Você delegou uma tarefa importante. A pessoa está executando de forma diferente da sua.",
- q:"O que acontece internamente — não o que você faz, mas o que você sente?",
- opts:["Sinto ansiedade real — é difícil confiar que vai sair com a qualidade que precisa","Fico inquieto e monitoro mais do que deveria — o desconforto é genuíno","Fico atento mas consigo confiar, interferindo só se for realmente necessário","Consigo soltar completamente — confio nas pessoas sem dificuldade","Observo com tranquilidade — o processo do outro não me gera ansiedade"],
+ ctx:"Alguém próximo — no trabalho, em casa ou entre amigos — está conduzindo algo de um jeito diferente do seu.",
+ q:"O que acontece dentro de você ao assistir isso, mesmo que você não interfira?",
+ opts:["Sinto uma ansiedade real — é difícil confiar e não assumir o controle da situação","Fico inquieto, com vontade de intervir e direcionar para o meu jeito","Acompanho de perto, mas consigo segurar e só entro se for realmente necessário","Confio com tranquilidade — o jeito do outro não me gera tensão","Solto totalmente — gosto até de ver caminhos diferentes do meu"],
  score:[5,4,2,1,1]},
 
 {id:19,phase:"Sabotadores Internos",inst:"SAB",dim:"Realizador",
- ctx:"Final de dia. Há pendências em aberto que ficaram para amanhã — coisas não urgentes.",
- q:"Como você se sente ao tentar desligar nessa situação?",
- opts:["Genuinamente difícil desligar — as pendências ficam na minha cabeça mesmo quando quero descansar","Consigo me desligar, mas carrego uma sensação de incompletude que só some quando entrego","Listo o que ficou, organizo mentalmente e consigo descansar sem grande dificuldade","Aceito com naturalidade — sei que nem tudo precisa ser resolvido hoje","Depende do que ficou — tarefas críticas me afetam, rotineiras não"],
- score:[5,3,2,1,2]},
+ ctx:"Um momento de descanso de verdade — um fim de semana, uma folga, um tempo livre — com tarefas em aberto que não são urgentes.",
+ q:"Como você se sente ao tentar simplesmente descansar?",
+ opts:["Difícil de verdade — minha cabeça não desliga, sinto que deveria estar produzindo algo","Descanso, mas carrego uma incômoda sensação de que estou devendo, que só passa ao concluir","Consigo relaxar depois de organizar mentalmente o que ficou pendente","Descanso com naturalidade — meu valor não depende do quanto eu entrego","Depende do momento — às vezes desligo fácil, às vezes não"],
+ score:[5,4,2,1,2]},
 
 {id:20,phase:"Sabotadores Internos",inst:"SAB",dim:"Esquivador",
- ctx:"Algo te incomoda de verdade em uma relação de trabalho. Falar vai gerar tensão — mas não falar vai continuar te afetando.",
- q:"O que acontece internamente quando você está nessa situação?",
- opts:["Evito — o desconforto de falar parece maior do que o de absorver, então fico quieto","Postergo bastante até que a tensão interna fique alta o suficiente para me forçar a agir","Me posiciono quando necessário, mas escolho cuidadosamente o momento e a forma","Falo diretamente quando algo me incomoda — não carrego isso por muito tempo","Processo internamente, espero o momento certo e então abordo com clareza"],
+ ctx:"Algo te incomoda de verdade numa relação importante — pode ser um amigo, um familiar, um parceiro ou um colega. Falar vai gerar tensão.",
+ q:"O que acontece dentro de você diante dessa situação?",
+ opts:["Evito ao máximo — prefiro engolir e manter a paz a encarar o desconforto do conflito","Adio bastante, até a tensão interna ficar grande demais para ignorar","Me posiciono quando preciso, escolhendo com cuidado o momento e o tom","Falo com naturalidade — não costumo guardar o que me incomoda","Abordo de forma tranquila quando sinto que é o momento certo"],
  score:[5,4,2,1,2]},
 
 {id:21,phase:"Sabotadores Internos",inst:"SAB",dim:"Hiperanalitico",
- ctx:"Você tem dados suficientes para tomar uma decisão importante. Racionalmente você sabe que pode decidir.",
- q:"O que acontece no seu corpo e na sua cabeça nesse momento de decidir?",
- opts:["Sinto uma inquietação interna real — é difícil aceitar que 'suficiente' é suficiente, quero mais certeza","Noto que processo por mais tempo do que o necessário — uma voz interna adia mesmo quando já sei o que fazer","Decido com naturalidade usando o que tenho — não sinto desconforto nesse processo","Decido rápido e com leveza — excesso de análise não é meu padrão","Às vezes preciso de um tempo extra, mas isso não me gera sofrimento ou travamento"],
+ ctx:"Uma decisão da vida — pode ser uma escolha pessoal, uma compra, um caminho a seguir. Você já tem informação suficiente para decidir.",
+ q:"O que acontece dentro de você na hora de fechar a decisão?",
+ opts:["Sinto uma inquietação real — quero mais certeza, mais dados, custa aceitar que já basta","Percebo que adio e fico revisando, mesmo já sabendo o que escolher","Decido com naturalidade usando o que tenho — não travo nesse processo","Decido com leveza e rapidez — analisar demais não é o meu padrão","Às vezes levo um tempo a mais, mas isso não me gera angústia"],
  score:[5,4,1,1,2]},
 
 {id:22,phase:"Sabotadores Internos",inst:"SAB",dim:"Prestativo",
- ctx:"Você claramente precisava de algo para si mesmo — descanso, tempo, espaço. Nesse momento, alguém próximo pede sua ajuda.",
- q:"O que acontece internamente — não o que você decide fazer, mas o que você sente?",
- opts:["Sinto que não posso dizer não — uma responsabilidade genuína pelo bem-estar do outro que é difícil de ignorar","Sinto culpa real quando priorizo a mim mesmo, mesmo sabendo racionalmente que é necessário","Consigo avaliar a situação e escolher sem sentir culpa excessiva na maioria das vezes","Tenho clareza sobre meus limites — priorizar a mim mesmo não me gera conflito interno","Ajudo, mas depois sinto um peso por não ter cuidado de mim — carrego isso"],
+ ctx:"Você precisava de algo para si — descanso, tempo, espaço. Nesse momento, alguém de quem você gosta pede sua ajuda.",
+ q:"O que acontece dentro de você — não o que você faz, mas o que você sente?",
+ opts:["Sinto que não consigo dizer não — minha necessidade fica em segundo plano automaticamente","Sinto culpa real se priorizo a mim, mesmo sabendo que precisava","Avalio e escolho conforme a situação, sem culpa excessiva","Tenho meus limites claros — cuidar de mim não me gera conflito interno","Ajudo, mas depois sinto um peso por ter deixado a mim de lado"],
  score:[5,4,2,1,3]},
 
 // ── PERFIL SOB PRESSÃO + RELACIONAMENTO ──────────────────
@@ -1610,13 +1631,17 @@ function gerarAIAdmin(r) {
     "Produto principal: Mentoria 5X — 12 meses de acompanhamento estruturado.\n\n" +
 
     "TOM — linguagem Vizzio:\n" +
-    "Direto, sem rodeio, com impacto. Frases curtas. Como William ou Thiara falariam com um empresário.\n" +
-    "Referências: 'Ou você gera clareza ou sua empresa vira bagunça.', 'Cultura não se inventa, se constrói.', 'A diferença quase nunca é talento. É a decisão de agir.'\n" +
-    "Vocabulário: clareza, autonomia, alto rendimento, transformação, cultura, resultado, times sólidos.\n\n" +
+    "Direto, sem rodeio, com impacto. Frases curtas. Mas com precisão de um laudo psicológico — nada genérico, nada vago.\n" +
+    "Vocabulário: clareza, autonomia, alto rendimento, transformação, cultura, resultado.\n\n" +
 
-    "═══ METODOLOGIA — SABOTADORES ═══\n" +
-    "PADRÕES AUTOMÁTICOS E LIMITANTES — não competências. Score acima de 60% = ATIVO.\n" +
-    "NUNCA como força. Realizador alto = sofre para desligar. Juiz alto = autocrítica excessiva. Controlador alto = ansiedade ao delegar. Hiperanálítico alto = paralisia por análise.\n\n" +
+    METODOLOGIA_SABOTADORES + "\n" +
+
+    "═══ PRECISÃO OBRIGATÓRIA (este relatório é tratado como um laudo) ═══\n" +
+    "Este resultado orienta o trabalho de desenvolvimento de uma pessoa real. Precisa ser CIRÚRGICO.\n" +
+    "- Baseie cada afirmação nos dados de score E nas respostas escritas. Não invente nada que os dados não sustentem.\n" +
+    "- Se o Juiz estiver alto, diga QUAL frente predomina (si mesmo, outros ou circunstâncias) com base nas respostas.\n" +
+    "- Considere a pessoa por inteiro — vida pessoal, familiar, relacional e profissional — não só o trabalho.\n" +
+    "- Se houver incoerência entre score e texto, aponte com honestidade em vez de forçar uma conclusão.\n\n" +
 
     "ESCOPO: " + ttInfo.short + "\n\n" +
     "PERFIL:\n" +
@@ -1624,32 +1649,32 @@ function gerarAIAdmin(r) {
     perfilLinhas.join("\n") + "\n" +
     "Sabotadores: " + sabStr + semStr + "\n\n" +
 
-    "RESPOSTAS ESCRITAS DO PARTICIPANTE (priorize):\n" + comentStr + "\n\n" +
+    "RESPOSTAS ESCRITAS DO PARTICIPANTE (priorize na análise — refletem a vivência real):\n" + comentStr + "\n\n" +
 
     "REGRAS:\n" +
-    "1. Sabotadores = limitantes — NUNCA como força\n" +
+    "1. Sabotadores = limitantes automáticos — NUNCA como força\n" +
     "2. Forças vêm do " + instrSegundo + ", não dos sabotadores\n" +
     "3. Se texto contradiz score, sinalize explicitamente\n" +
     "4. Sem asteriscos, bullets ou markdown — texto corrido\n" +
     "5. Complete TODAS as seções\n" +
-    "6. Escreva com a voz da Vizzio — direto, provocador, sem suavizar\n\n" +
+    "6. Distinga as 3 frentes do Juiz quando ele estiver presente\n\n" +
 
     "ESTRUTURA:\n\n" +
     "🧠 SÍNTESE DO PERFIL\n" +
-    "Perfil " + instrSegundo + " dominante + como " + sabTop2 + " operam como interferência. Direto ao ponto.\n\n" +
+    "Perfil " + instrSegundo + " dominante + como " + sabTop2 + " operam como interferência automática. Direto e específico.\n\n" +
     "💪 RECURSOS GENUÍNOS\n" +
     "3 forças reais do " + instrSegundo + " (NÃO dos sabotadores). Mecanismo em 1 frase cada.\n\n" +
     "⚡ PADRÃO DOS SABOTADORES\n" +
-    "Como " + sabTop2 + " se manifestam como autossabotagem. Situações concretas de liderança e gestão.\n\n" +
+    "Como " + sabTop2 + " se manifestam como autossabotagem nesta pessoa — na vida pessoal, relacional E profissional. Se o Juiz aparecer, diga em qual frente (si/outros/circunstâncias). Situações concretas.\n\n" +
     "🔥 SOB PRESSÃO\n" +
-    "Como os sabotadores se intensificam. O que o time percebe que o líder não vê.\n\n" +
+    "Como os sabotadores se intensificam quando a pressão aumenta. O que os outros percebem que a pessoa não vê em si.\n\n" +
     "🤝 NOS RELACIONAMENTOS\n" +
-    "Estilo relacional do " + instrSegundo + " e onde os sabotadores criam atrito com o time.\n\n" +
-    "🎯 COMO TRABALHAR COM ESSA PESSOA\n" +
-    "3 recomendações práticas (1, 2, 3). Aplicáveis no campo — do jeito que a Vizzio usa.\n\n" +
+    "Estilo relacional do " + instrSegundo + " e onde os sabotadores criam atrito — com pessoas próximas e no trabalho.\n\n" +
+    "🎯 CAMINHOS DE DESENVOLVIMENTO\n" +
+    "3 recomendações práticas numeradas (1, 2, 3), específicas para os sabotadores e o perfil desta pessoa.\n\n" +
     "💡 SÍNTESE FINAL\n" +
-    "Recurso genuíno do " + instrSegundo + " vs limite dos sabotadores. Frase final no estilo Vizzio.\n\n" +
-    "Máximo 550 palavras. Complete TODAS as 7 seções.";
+    "Recurso genuíno do " + instrSegundo + " vs o limite que os sabotadores impõem. Frase final de impacto.\n\n" +
+    "Máximo 600 palavras. Complete TODAS as 7 seções.";
 
   callGroq(prompt, function(txt) {
     if (!txt) return;
@@ -2006,21 +2031,24 @@ function _gerarEMostrar(i) {
     "Base científica: Coaching, Neurociência, Psicologia Positiva, Psicodinâmica — alinhado com Harvard, Stanford e Universidade da Pensilvânia.\n\n" +
 
     "TOM DO RELATÓRIO — linguagem Vizzio:\n" +
-    "Direto, provocador, sem rodeios. Frases curtas que impactam. Do jeito que a Vizzio fala com empresários.\n" +
-    "Frases de referência da marca: 'Ou você gera clareza ou sua empresa se torna uma bagunça.', 'Cultura não se inventa, se constrói.', 'A diferença quase nunca é talento. É a decisão de agir.'\n" +
-    "Vocabulário obrigatório: clareza, autonomia, alto rendimento, transformação, cultura, resultado, times sólidos.\n\n" +
+    "Direto, provocador, sem rodeios. Frases curtas que impactam. Mas com precisão de laudo — nada genérico, nada vago.\n" +
+    "Vocabulário obrigatório: clareza, autonomia, alto rendimento, transformação, cultura, resultado.\n\n" +
 
-    "═══ METODOLOGIA — SABOTADORES ═══\n" +
-    "Sabotadores são PADRÕES AUTOMÁTICOS E LIMITANTES (Shirzad Chamine / Inteligência Positiva).\n" +
-    "NÃO são traços de personalidade nem competências. Score acima de 60% = padrão ATIVO.\n" +
-    "CRÍTICO: NUNCA descreva sabotador como força. Realizador alto = sofre para desligar. Juiz alto = autocrítica excessiva. Controlador alto = ansiedade real ao delegar. Hiperanálítico alto = paralisia por análise.\n\n" +
+    METODOLOGIA_SABOTADORES + "\n" +
+
+    "═══ PRECISÃO OBRIGATÓRIA (este relatório é tratado como um laudo) ═══\n" +
+    "Este resultado orienta o desenvolvimento de uma pessoa real. Precisa ser CIRÚRGICO.\n" +
+    "- Baseie cada afirmação nos scores E nas respostas escritas. Não invente nada sem sustentação nos dados.\n" +
+    "- Se o Juiz estiver alto, diga QUAL frente predomina (si mesmo, outros ou circunstâncias).\n" +
+    "- Avalie a pessoa por inteiro — vida pessoal, familiar, relacional E profissional — não só o trabalho.\n" +
+    "- Se houver incoerência entre score e texto, aponte com honestidade.\n\n" +
 
     "ESCOPO: " + ttInfo.short + "\n\n" +
     "PERFIL:\n" +
     "Nome: " + r.name + " | Cargo: " + (r.role||"—") + " | Empresa: " + (r.co||"—") + "\n" +
     perfilLinhas.join("\n") + semStr + "\n\n" +
 
-    "RESPOSTAS ESCRITAS DO PARTICIPANTE (priorize na análise):\n" + comentStr + "\n\n" +
+    "RESPOSTAS ESCRITAS DO PARTICIPANTE (priorize — refletem a vivência real):\n" + comentStr + "\n\n" +
 
     "REGRAS:\n" +
     "1. Sabotadores = limitantes automáticos — NUNCA como força\n" +
@@ -2028,25 +2056,24 @@ function _gerarEMostrar(i) {
     "3. Se texto contradiz score, sinalize explicitamente\n" +
     "4. Sem asteriscos, bullets ou markdown — texto corrido\n" +
     "5. Complete TODAS as seções\n" +
-    "6. Use vocabulário Vizzio: clareza, autonomia, alto rendimento, resultado, cultura\n" +
-    "7. Escreva como William ou Thiara falariam — direto, sem rodeio, com impacto\n\n" +
+    "6. Distinga as 3 frentes do Juiz quando ele estiver presente\n\n" +
 
-    "ESTRUTURA — parágrafos corridos, tom direto:\n\n" +
+    "ESTRUTURA — parágrafos corridos, tom direto e preciso:\n\n" +
     "🧠 SÍNTESE DO PERFIL\n" +
-    "2-3 frases. Perfil " + instrSegundo + " dominante + como " + sabTop2 + " interferem automaticamente. Seja direto como a Vizzio — nada de suavizar.\n\n" +
+    "2-3 frases. Perfil " + instrSegundo + " dominante + como " + sabTop2 + " interferem automaticamente. Direto e específico.\n\n" +
     "💪 RECURSOS GENUÍNOS\n" +
-    "3 forças reais baseadas em " + instrSegundo + " (NÃO nos sabotadores). Para cada uma, o mecanismo em 1 frase curta. Use linguagem de alta performance.\n\n" +
+    "3 forças reais baseadas em " + instrSegundo + " (NÃO nos sabotadores). Para cada uma, o mecanismo em 1 frase curta.\n\n" +
     "⚡ PADRÃO DOS SABOTADORES\n" +
-    "Como " + sabTop2 + " se manifestam como autossabotagem nesta pessoa. Situações concretas — decisões, relações, entregas, liderança de time. O que essa pessoa faz ou sente que é produto do sabotador, não da personalidade.\n\n" +
+    "Como " + sabTop2 + " se manifestam como autossabotagem nesta pessoa — vida pessoal, relacional E profissional. Se o Juiz aparecer, diga em qual frente (si/outros/circunstâncias). O que essa pessoa faz ou sente que é produto do sabotador, não da personalidade.\n\n" +
     "🔥 SOB PRESSÃO\n" +
-    "Como os sabotadores se intensificam quando o jogo fica difícil. O que os outros percebem que essa pessoa não vê em si mesma.\n\n" +
+    "Como os sabotadores se intensificam quando a pressão aumenta. O que os outros percebem que ela não vê em si.\n\n" +
     "🤝 NOS RELACIONAMENTOS\n" +
-    "Estilo relacional do " + instrSegundo + " e onde os sabotadores criam atrito com o time sem que a pessoa perceba.\n\n" +
-    "🎯 COMO TRABALHAR COM ESSA PESSOA\n" +
-    "3 recomendações práticas numeradas (1, 2, 3). Cada uma em 2-3 frases. Específicas, aplicáveis no contexto de liderança e gestão — do jeito que a Vizzio aplica no campo.\n\n" +
+    "Estilo relacional do " + instrSegundo + " e onde os sabotadores criam atrito — com pessoas próximas e no trabalho.\n\n" +
+    "🎯 CAMINHOS DE DESENVOLVIMENTO\n" +
+    "3 recomendações práticas numeradas (1, 2, 3). Específicas para os sabotadores e o perfil desta pessoa.\n\n" +
     "💡 SÍNTESE FINAL\n" +
-    "O que o " + instrSegundo + " oferece como recurso genuíno e como " + sabTop2 + " limitam a expressão plena disso. Feche com frase no estilo Vizzio — direta e de impacto.\n\n" +
-    "Máximo 550 palavras. Complete TODAS as 7 seções.";
+    "O que o " + instrSegundo + " oferece como recurso genuíno e como " + sabTop2 + " limitam a expressão plena disso. Feche com frase de impacto.\n\n" +
+    "Máximo 600 palavras. Complete TODAS as 7 seções.";
 
   // Chamar IA e atualizar box diretamente
   callGroq(prompt, function(txt) {
@@ -2611,12 +2638,13 @@ function startAssessment() {
     addBubble("ai",
       '<span class="ai-lbl">Vizzio</span>' +
       '<strong>' + primeiroNome + '</strong>, vou direto ao ponto.<br><br>' +
-      'Esse assessment foi desenvolvido pela Vizzio Training com base em 8 anos de metodologia aplicada em mais de 300 empresários e 40.000 profissionais. ' +
-      'Ele vai mapear como você realmente funciona — não o que você gostaria de ser, o que você é de fato.<br><br>' +
+      'Esse assessment foi desenvolvido pela Vizzio Training com base em metodologia consolidada de perfil comportamental e inteligência positiva. ' +
+      'Ele vai mapear como você realmente funciona — na vida pessoal, nas relações e no trabalho. Não o que você gostaria de ser, o que você é de fato.<br><br>' +
+      'Não existe resposta certa ou errada — existe a sua preferência natural. Por isso, responda com a <strong>primeira resposta que vier à mente</strong>.<br><br>' +
       'Para cada situação, <strong>clique em uma ou duas opções</strong> que mais combinam com você. ' +
-      'Se quiser adicionar contexto, escreva no campo de comentário. ' +
-      'Pode clicar em uma, em duas, ou apenas escrever um comentário.<br><br>' +
-      'Seja honesto — aqui não existe certo ou errado. Clareza começa aqui. Vamos?'
+      'Se quiser, use o campo de comentário para dar contexto. ' +
+      'Pode clicar em uma, em duas, ou apenas comentar.<br><br>' +
+      'Clareza começa aqui. Vamos?'
     );
     setTimeout(function(){
       renderCurrentQuestion();
