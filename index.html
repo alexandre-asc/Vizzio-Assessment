@@ -84,6 +84,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',sa
 .cbtn-wp{background:#25D366;color:#fff}.cbtn-wp:hover{background:#1FA855}
 /* TABLE */
 .tbl-wrap{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
+.company-header:hover td{background:rgba(0,212,200,.1)!important}
 table{width:100%;border-collapse:collapse}
 th{font-size:11px;color:var(--subtle);text-transform:uppercase;letter-spacing:.08em;padding:10px 14px;text-align:left;border-bottom:1px solid var(--border);background:var(--card)}
 td{padding:12px 14px;border-bottom:1px solid rgba(30,37,51,.5);font-size:13px;vertical-align:middle}
@@ -1904,38 +1905,79 @@ function renderResults() {
     return;
   }
   var dn = DISC_NAMES;
-  var h = "";
+
+  // ── Agrupar resultados por empresa ──
+  var grupos = {};
   results.forEach(function(r, i) {
-    // Chip de perfil — adapta ao tipo de teste
-    var chip = "—";
-    var tt = r.testType || "A";
-    var ttInfo = TEST_TYPES[tt] || TEST_TYPES.A;
+    var emp = (r.co && r.co.trim()) ? r.co.trim() : "Sem empresa";
+    if (!grupos[emp]) grupos[emp] = [];
+    grupos[emp].push({ r: r, i: i });
+  });
 
-    if (r.status === "done") {
-      if (ttInfo.insts.indexOf("DISC") >= 0 && r.discDom) {
-        chip = '<span class="chip c'+r.discDom+'">'+r.discDom+' — '+(dn[r.discDom]||"")+'</span>';
-      } else if (ttInfo.insts.indexOf("TEMP") >= 0 && r.tempDom) {
-        chip = '<span class="chip cI">'+TEMP_NAMES[r.tempDom]+'</span>';
-      } else if (ttInfo.insts.indexOf("NED") >= 0 && r.nedDom) {
-        chip = '<span class="chip cC">'+NED_NAMES[r.nedDom]+'</span>';
+  // Ordenar empresas alfabeticamente, "Sem empresa" por último
+  var empresas = Object.keys(grupos).sort(function(a, b) {
+    if (a === "Sem empresa") return 1;
+    if (b === "Sem empresa") return -1;
+    return a.localeCompare(b, "pt-BR");
+  });
+
+  if (!STATE._collapsedCompanies) STATE._collapsedCompanies = {};
+
+  var h = "";
+  empresas.forEach(function(emp) {
+    var itens = grupos[emp];
+    var concluidos = itens.filter(function(x){ return x.r.status === "done"; }).length;
+    var collapsed = STATE._collapsedCompanies[emp] === true;
+    var arrow = collapsed ? "▶" : "▼";
+    var safeEmp = emp.replace(/'/g, "\\'");
+
+    // Cabeçalho da empresa (linha de seção)
+    h += '<tr class="company-header" onclick="toggleCompany(\'' + safeEmp + '\')">';
+    h += '<td colspan="6" style="background:rgba(0,212,200,.06);border-left:3px solid var(--teal);padding:12px 14px;cursor:pointer;user-select:none">';
+    h += '<span style="color:var(--teal);font-weight:800;font-size:14px;letter-spacing:.02em">' + arrow + ' 🏢 ' + emp + '</span>';
+    h += '<span style="color:var(--muted);font-size:12px;font-weight:600;margin-left:10px">' + itens.length + ' participante' + (itens.length>1?'s':'') + ' · ' + concluidos + ' concluído' + (concluidos!==1?'s':'') + '</span>';
+    h += '</td></tr>';
+
+    if (collapsed) return;
+
+    itens.forEach(function(item) {
+      var r = item.r, i = item.i;
+      var chip = "—";
+      var tt = r.testType || "A";
+      var ttInfo = TEST_TYPES[tt] || TEST_TYPES.A;
+
+      if (r.status === "done") {
+        if (ttInfo.insts.indexOf("DISC") >= 0 && r.discDom) {
+          chip = '<span class="chip c'+r.discDom+'">'+r.discDom+' — '+(dn[r.discDom]||"")+'</span>';
+        } else if (ttInfo.insts.indexOf("TEMP") >= 0 && r.tempDom) {
+          chip = '<span class="chip cI">'+TEMP_NAMES[r.tempDom]+'</span>';
+        } else if (ttInfo.insts.indexOf("NED") >= 0 && r.nedDom) {
+          chip = '<span class="chip cC">'+NED_NAMES[r.nedDom]+'</span>';
+        }
       }
-    }
 
-    var testChip = '<span class="chip-test ' + ttInfo.chip + '">🎯 ' + tt + '</span>';
-    var status = r.status === "done"
-      ? '<span class="s-done">✓ Concluído</span>'
-      : '<span class="s-pend">⏳ Pendente</span>';
-    h += '<tr>';
-    h += '<td style="font-weight:600">' + (r.name||"—") + ' ' + testChip + '</td>';
-    h += '<td>' + (r.co||"—") + '</td>';
-    h += '<td>' + (r.role||"—") + '</td>';
-    h += '<td>' + chip + '</td>';
-    h += '<td>' + status + '</td>';
-    h += '<td><button class="abtn" onclick="viewResult('+i+')">Ver</button>' +
-         '<button class="abtn abtn-del" onclick="deleteResult('+i+')">Excluir</button></td>';
-    h += '</tr>';
+      var testChip = '<span class="chip-test ' + ttInfo.chip + '">🎯 ' + tt + '</span>';
+      var status = r.status === "done"
+        ? '<span class="s-done">✓ Concluído</span>'
+        : '<span class="s-pend">⏳ Pendente</span>';
+      h += '<tr>';
+      h += '<td style="font-weight:600;padding-left:22px">' + (r.name||"—") + ' ' + testChip + '</td>';
+      h += '<td>' + (r.co||"—") + '</td>';
+      h += '<td>' + (r.role||"—") + '</td>';
+      h += '<td>' + chip + '</td>';
+      h += '<td>' + status + '</td>';
+      h += '<td><button class="abtn" onclick="viewResult('+i+')">Ver</button>' +
+           '<button class="abtn abtn-del" onclick="deleteResult('+i+')">Excluir</button></td>';
+      h += '</tr>';
+    });
   });
   tb.innerHTML = h;
+}
+
+function toggleCompany(emp) {
+  if (!STATE._collapsedCompanies) STATE._collapsedCompanies = {};
+  STATE._collapsedCompanies[emp] = !STATE._collapsedCompanies[emp];
+  renderResults();
 }
 
 function viewResult(i) {
