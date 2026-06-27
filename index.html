@@ -282,7 +282,7 @@ tr:last-child td{border-bottom:none}
     <div class="cfg">
       <div class="row2">
         <div class="field"><label>Nome do Assessment</label><input id="cfgName" value="Vizzio Assessment" placeholder="Nome do assessment"></div>
-        <div class="field"><label>Empresa cliente</label><input id="cfgCo" placeholder="Ex: TechCorp Ltda"></div>
+        <div class="field"><label>Empresa cliente *</label><input id="cfgCo" placeholder="Ex: TechCorp Ltda" required></div>
       </div>
       <div class="field" style="margin-top:4px">
         <label>Tipo de Teste — escolha a combinação que deseja aplicar</label>
@@ -661,15 +661,15 @@ var QQ_ALL = [
  ctx:"Um plano que você tinha — uma viagem, um compromisso, uma rotina — muda de repente por algo fora do seu controle.",
  q:"O que acontece dentro de você — não o que você demonstra, o que você sente de verdade?",
  opts:["Adapto rápido — mudança faz parte da vida, não tem o que fazer","Fico um pouco incomodado mas me ajusto com relativa facilidade","Preciso de um tempo para processar — mudança brusca me desequilibra","Me irrito internamente, mesmo conseguindo me controlar por fora","Depende do impacto da mudança no que já estava planejado"],
- score:[2,3,5,2,4],
- multi:[{dim:"D",w:[4,3,2,4,3]},{dim:"C",w:[2,3,4,3,4]}]},
+ score:[3,4,5,3,4],
+ multi:[{dim:"D",w:[2,1,1,4,2]},{dim:"C",w:[1,2,4,2,4]}]},
 
 {id:5,phase:"Perfil Comportamental",inst:"DISC",dim:"S",
  ctx:"Um período cheio na sua vida, sem muito tempo livre. Alguém de quem você gosta pede sua ajuda de última hora.",
  q:"O que você faz?",
  opts:["Paro e ajudo — as pessoas que amo vêm primeiro, sempre","Avalio rapidamente e, se der, ajudo com genuína vontade","Explico que não consigo agora, mas combino para logo depois","Ajudo, mas deixo claro que espero a mesma coisa de volta","Depende de quem é e do quanto isso atrapalha o que já tenho"],
  score:[5,4,3,3,3],
- multi:[{dim:"I",w:[4,3,2,3,2]},{dim:"D",w:[2,3,4,3,3]}]},
+ multi:[{dim:"I",w:[3,3,1,2,1]},{dim:"D",w:[1,2,3,3,3]}]},
 
 // ── DISC — Conformidade ───────────────────────────────────
 {id:6,phase:"Perfil Comportamental",inst:"DISC",dim:"C",
@@ -691,29 +691,29 @@ var QQ_ALL = [
  ctx:"Imagine que algo dá errado de verdade — pode ser na vida pessoal, em casa ou no trabalho. Um imprevisto, um conflito, uma frustração.",
  q:"Qual é sua primeira reação, de verdade?",
  opts:["Parto pra ação, resolvo logo e sigo em frente — não fico remoendo","Respiro fundo, processo e ajo com calma depois","Quero entender tudo que aconteceu antes de qualquer movimento","Fico irritado num primeiro momento, mas me reorganizo rápido","Absorvo por dentro — preciso de tempo para me reequilibrar"],
- score:[4,3,3,5,2],
- multi:[{dim:"Sa",w:[3,4,3,2,2]},{dim:"Me",w:[2,3,5,2,4]},{dim:"Fl",w:[3,5,4,2,3]}]},
+ score:[4,2,2,5,1],
+ multi:[{dim:"Sa",w:[3,3,2,2,1]},{dim:"Me",w:[1,2,4,2,5]},{dim:"Fl",w:[2,5,4,1,3]}]},
 
 {id:9,phase:"Temperamento e Emoções",inst:"TEMP",dim:"Sa",
  ctx:"Começa um período intenso na sua vida — muitas demandas, muita gente contando com você, pouco tempo de sobra.",
  q:"Como você normalmente entra nesse momento?",
  opts:["Com energia e otimismo — quanto mais movimento, mais me animo","Focado e determinado — vou fazer o que precisa ser feito","Com cuidado — organizo tudo primeiro antes de agir","Com certa relutância — preciso de um tempo para engatar","Depende do meu estado emocional naquele momento"],
- score:[5,3,2,1,3],
- multi:[{dim:"Co",w:[4,4,2,2,3]},{dim:"Fl",w:[2,4,5,4,3]}]},
+ score:[5,2,1,1,3],
+ multi:[{dim:"Co",w:[3,5,2,1,2]},{dim:"Fl",w:[1,2,4,5,3]},{dim:"Me",w:[1,2,4,3,3]}]},
 
 {id:10,phase:"Temperamento e Emoções",inst:"TEMP",dim:"Me",
  ctx:"Você precisa tomar uma decisão importante — com prazo curto e informações incompletas.",
  q:"Como seu processo de decisão funciona naturalmente?",
  opts:["Decido rápido com o que tenho — tempo também é recurso","Consulto quem precisa consultar antes de decidir","Analiso com cuidado os dados disponíveis antes de qualquer coisa","Sigo minha intuição — ela raramente me trai nessas horas","Procuro mais informação mesmo que isso atrase um pouco"],
- score:[2,3,5,3,4],
- multi:[{dim:"Co",w:[5,3,2,3,2]},{dim:"Fl",w:[3,4,4,4,5]}]},
+ score:[1,2,5,2,4],
+ multi:[{dim:"Co",w:[5,2,1,3,1]},{dim:"Fl",w:[2,4,3,3,4]},{dim:"Sa",w:[3,3,1,4,1]}]},
 
 {id:11,phase:"Temperamento e Emoções",inst:"TEMP",dim:"Fl",
- ctx:"Um colega comete um erro que impacta o trabalho de toda a equipe. Você precisa abordar isso.",
- q:"O que você naturalmente faz?",
- opts:["Dou um feedback direto e imediato — clareza resolve mais rápido","Espero o momento certo e converso de forma que motive a melhora","Converso em particular, com empatia, oferecendo apoio concreto","Analiso o que aconteceu e proponho um plano para não repetir","Espero a pessoa perceber sozinha — não gosto de confronto"],
- score:[3,4,5,4,2],
- multi:[{dim:"Co",w:[5,3,2,3,1]},{dim:"Me",w:[3,3,4,5,2]}]},
+ ctx:"Uma situação tensa surge entre pessoas à sua volta — em casa, com amigos ou no trabalho. O clima fica pesado.",
+ q:"Como você naturalmente reage?",
+ opts:["Encaro de forma direta e resolvo logo — não gosto de deixar pendente","Mantenho a calma e busco apaziguar, evitando que aumente","Fico tranquilo e equilibrado, ajudo a baixar a tensão sem confronto","Analiso a fundo o que causou e penso bem antes de me posicionar","Prefiro me afastar e deixar a poeira baixar antes de agir"],
+ score:[2,4,5,3,4],
+ multi:[{dim:"Co",w:[5,2,1,2,1]},{dim:"Me",w:[1,2,2,5,3]},{dim:"Sa",w:[2,4,3,1,2]}]},
 
 // ── DOMINÂNCIA CEREBRAL (Ned Herrmann) — 4 QUADRANTES ───────
 // NA = Analítico  | NB = Organizado  | NC = Interpessoal  | ND = Inovador
@@ -1173,44 +1173,57 @@ function _doCompute() {
     var primaryScore = getScore(q.score, ans);
     var norm = (primaryScore / 5) * 100;
 
+    // Reforço da dimensão PRIMÁRIA para testes comportamentais (DISC/TEMP/NED)
+    // Garante que a preferência principal não seja "engolida" pelas secundárias.
+    // Sabotadores NÃO recebem reforço (preservados).
+    var PESO_PRIM = 1.0;
+    if (q.inst === "DISC" || q.inst === "TEMP" || q.inst === "NED") PESO_PRIM = 1.35;
+    var normP = norm * PESO_PRIM;
+    var cntP = PESO_PRIM;
+
     // Dimensão primária
-    if (q.dim === "D"){ disc.D += norm; dcnt.D++; }
-    else if (q.dim === "I"){ disc.I += norm; dcnt.I++; }
-    else if (q.dim === "S"){ disc.S += norm; dcnt.S++; }
-    else if (q.dim === "C"){ disc.C += norm; dcnt.C++; }
-    else if (q.dim === "Co"){ temp.Co += norm; tcnt.Co++; }
-    else if (q.dim === "Sa"){ temp.Sa += norm; tcnt.Sa++; }
-    else if (q.dim === "Fl"){ temp.Fl += norm; tcnt.Fl++; }
-    else if (q.dim === "Me"){ temp.Me += norm; tcnt.Me++; }
-    else if (q.dim === "NA"){ ned.NA += norm; ncnt.NA++; }
-    else if (q.dim === "NB"){ ned.NB += norm; ncnt.NB++; }
-    else if (q.dim === "NC"){ ned.NC += norm; ncnt.NC++; }
-    else if (q.dim === "ND"){ ned.ND += norm; ncnt.ND++; }
+    if (q.dim === "D"){ disc.D += normP; dcnt.D += cntP; }
+    else if (q.dim === "I"){ disc.I += normP; dcnt.I += cntP; }
+    else if (q.dim === "S"){ disc.S += normP; dcnt.S += cntP; }
+    else if (q.dim === "C"){ disc.C += normP; dcnt.C += cntP; }
+    else if (q.dim === "Co"){ temp.Co += normP; tcnt.Co += cntP; }
+    else if (q.dim === "Sa"){ temp.Sa += normP; tcnt.Sa += cntP; }
+    else if (q.dim === "Fl"){ temp.Fl += normP; tcnt.Fl += cntP; }
+    else if (q.dim === "Me"){ temp.Me += normP; tcnt.Me += cntP; }
+    else if (q.dim === "NA"){ ned.NA += normP; ncnt.NA += cntP; }
+    else if (q.dim === "NB"){ ned.NB += normP; ncnt.NB += cntP; }
+    else if (q.dim === "NC"){ ned.NC += normP; ncnt.NC += cntP; }
+    else if (q.dim === "ND"){ ned.ND += normP; ncnt.ND += cntP; }
     else if (q.dim === "L"){ brainL += norm; brainCnt++; }
     else if (q.dim === "R"){ brainR += norm; brainCnt++; }
     else if (q.dim === "QP"){ qpSum += norm; qpCnt++; }
     else if (sabs[q.dim] !== undefined){ sabs[q.dim] += norm; sabCnt[q.dim]++; }
 
-    // Dimensões secundárias (peso 0.4)
+    // Dimensões secundárias
+    // SABOTADORES: mantêm peso 0.4 (NÃO ALTERAR — validado pela equipe)
+    // DISC / TEMP / NED: peso reduzido para 0.25 para a dimensão primária
+    //   ter mais força e evitar classificação incorreta (ex: S virando D)
     if (q.multi) {
       q.multi.forEach(function(m) {
         var ms = getScore(m.w, ans);
         var mn = (ms / 5) * 100;
         var d = m.dim;
-        if (d === "D"){ disc.D += mn * 0.4; dcnt.D += 0.4; }
-        else if (d === "I"){ disc.I += mn * 0.4; dcnt.I += 0.4; }
-        else if (d === "S"){ disc.S += mn * 0.4; dcnt.S += 0.4; }
-        else if (d === "C"){ disc.C += mn * 0.4; dcnt.C += 0.4; }
-        else if (d === "Co"){ temp.Co += mn * 0.4; tcnt.Co += 0.4; }
-        else if (d === "Sa"){ temp.Sa += mn * 0.4; tcnt.Sa += 0.4; }
-        else if (d === "Fl"){ temp.Fl += mn * 0.4; tcnt.Fl += 0.4; }
-        else if (d === "Me"){ temp.Me += mn * 0.4; tcnt.Me += 0.4; }
-        else if (d === "NA"){ ned.NA += mn * 0.4; ncnt.NA += 0.4; }
-        else if (d === "NB"){ ned.NB += mn * 0.4; ncnt.NB += 0.4; }
-        else if (d === "NC"){ ned.NC += mn * 0.4; ncnt.NC += 0.4; }
-        else if (d === "ND"){ ned.ND += mn * 0.4; ncnt.ND += 0.4; }
-        else if (d === "QP"){ qpSum += mn * 0.4; qpCnt += 0.4; }
-        else if (sabs[d] !== undefined){ sabs[d] += mn * 0.4; sabCnt[d] += 0.4; }
+        var PESO_COMPORT = 0.25;  // DISC, TEMP, NED
+        var PESO_SAB = 0.4;       // Sabotadores (preservado)
+        if (d === "D"){ disc.D += mn * PESO_COMPORT; dcnt.D += PESO_COMPORT; }
+        else if (d === "I"){ disc.I += mn * PESO_COMPORT; dcnt.I += PESO_COMPORT; }
+        else if (d === "S"){ disc.S += mn * PESO_COMPORT; dcnt.S += PESO_COMPORT; }
+        else if (d === "C"){ disc.C += mn * PESO_COMPORT; dcnt.C += PESO_COMPORT; }
+        else if (d === "Co"){ temp.Co += mn * PESO_COMPORT; tcnt.Co += PESO_COMPORT; }
+        else if (d === "Sa"){ temp.Sa += mn * PESO_COMPORT; tcnt.Sa += PESO_COMPORT; }
+        else if (d === "Fl"){ temp.Fl += mn * PESO_COMPORT; tcnt.Fl += PESO_COMPORT; }
+        else if (d === "Me"){ temp.Me += mn * PESO_COMPORT; tcnt.Me += PESO_COMPORT; }
+        else if (d === "NA"){ ned.NA += mn * PESO_COMPORT; ncnt.NA += PESO_COMPORT; }
+        else if (d === "NB"){ ned.NB += mn * PESO_COMPORT; ncnt.NB += PESO_COMPORT; }
+        else if (d === "NC"){ ned.NC += mn * PESO_COMPORT; ncnt.NC += PESO_COMPORT; }
+        else if (d === "ND"){ ned.ND += mn * PESO_COMPORT; ncnt.ND += PESO_COMPORT; }
+        else if (d === "QP"){ qpSum += mn * PESO_COMPORT; qpCnt += PESO_COMPORT; }
+        else if (sabs[d] !== undefined){ sabs[d] += mn * PESO_SAB; sabCnt[d] += PESO_SAB; }
       });
     }
   });
@@ -1348,6 +1361,7 @@ function _doCompute() {
     name: STATE.part.name,
     phone: STATE.part.phone,
     co: STATE.part.co,
+    coKey: STATE.part.coKey,
     role: STATE.part.role,
     level: STATE.cfg ? STATE.cfg.lv : "lider",
     testType: testType,
@@ -1906,33 +1920,36 @@ function renderResults() {
   }
   var dn = DISC_NAMES;
 
-  // ── Agrupar resultados por empresa ──
+  // ── Agrupar resultados por empresa (usa chave normalizada p/ evitar duplicidade) ──
   var grupos = {};
+  var nomeExibicao = {};
   results.forEach(function(r, i) {
-    var emp = (r.co && r.co.trim()) ? r.co.trim() : "Sem empresa";
-    if (!grupos[emp]) grupos[emp] = [];
-    grupos[emp].push({ r: r, i: i });
+    var nomeEmp = (r.co && r.co.trim()) ? normalizeCompany(r.co) : "Sem empresa";
+    var chave = (r.coKey && r.coKey.trim()) ? r.coKey : (nomeEmp === "Sem empresa" ? "__sem__" : companyKey(nomeEmp));
+    if (!grupos[chave]) { grupos[chave] = []; nomeExibicao[chave] = nomeEmp; }
+    grupos[chave].push({ r: r, i: i });
   });
 
   // Ordenar empresas alfabeticamente, "Sem empresa" por último
-  var empresas = Object.keys(grupos).sort(function(a, b) {
-    if (a === "Sem empresa") return 1;
-    if (b === "Sem empresa") return -1;
-    return a.localeCompare(b, "pt-BR");
+  var chaves = Object.keys(grupos).sort(function(a, b) {
+    if (a === "__sem__") return 1;
+    if (b === "__sem__") return -1;
+    return nomeExibicao[a].localeCompare(nomeExibicao[b], "pt-BR");
   });
 
   if (!STATE._collapsedCompanies) STATE._collapsedCompanies = {};
 
   var h = "";
-  empresas.forEach(function(emp) {
-    var itens = grupos[emp];
+  chaves.forEach(function(chave) {
+    var emp = nomeExibicao[chave];
+    var itens = grupos[chave];
     var concluidos = itens.filter(function(x){ return x.r.status === "done"; }).length;
-    var collapsed = STATE._collapsedCompanies[emp] === true;
+    var collapsed = STATE._collapsedCompanies[chave] === true;
     var arrow = collapsed ? "▶" : "▼";
-    var safeEmp = emp.replace(/'/g, "\\'");
+    var safeKey = chave.replace(/'/g, "\\'");
 
     // Cabeçalho da empresa (linha de seção)
-    h += '<tr class="company-header" onclick="toggleCompany(\'' + safeEmp + '\')">';
+    h += '<tr class="company-header" onclick="toggleCompany(\'' + safeKey + '\')">';
     h += '<td colspan="6" style="background:rgba(0,212,200,.06);border-left:3px solid var(--teal);padding:12px 14px;cursor:pointer;user-select:none">';
     h += '<span style="color:var(--teal);font-weight:800;font-size:14px;letter-spacing:.02em">' + arrow + ' 🏢 ' + emp + '</span>';
     h += '<span style="color:var(--muted);font-size:12px;font-weight:600;margin-left:10px">' + itens.length + ' participante' + (itens.length>1?'s':'') + ' · ' + concluidos + ' concluído' + (concluidos!==1?'s':'') + '</span>';
@@ -2586,25 +2603,52 @@ function testarChaveIA() {
   });
 }
 
+// ── Normalização de empresa: remove espaços extras, padroniza ──
+function normalizeCompany(raw) {
+  if (!raw) return "";
+  // Remove espaços duplicados e nas pontas
+  var clean = raw.replace(/\s+/g, " ").trim();
+  return clean;
+}
+// Gera um identificador interno padronizado (evita duplicidade por maiúsc/acento)
+function companyKey(raw) {
+  var clean = normalizeCompany(raw).toLowerCase();
+  // Remove acentos
+  clean = clean.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  // Remove pontuação comum de razão social
+  clean = clean.replace(/[.,\-\/]/g, "").replace(/\s+/g, " ").trim();
+  return clean;
+}
+
 function genLink() {
   var name  = document.getElementById("cfgName").value.trim() || "Vizzio Assessment";
-  var co    = document.getElementById("cfgCo").value.trim();
+  var co    = normalizeCompany(document.getElementById("cfgCo").value);
   var lv    = document.getElementById("cfgLv").value;
   var key   = document.getElementById("cfgKey") ? document.getElementById("cfgKey").value.trim() : "";
+
+  // Empresa agora é OBRIGATÓRIA no envio do convite
+  if (!co) {
+    alert("Por favor, informe o nome da Empresa antes de gerar o link.");
+    document.getElementById("cfgCo").focus();
+    return;
+  }
+
   if (key) saveKey(key);
   // Tipo de teste selecionado
   var ttRadio = document.querySelector('input[name="testType"]:checked');
   var t       = ttRadio ? ttRadio.value : "A";
   var tInfo   = TEST_TYPES[t] || TEST_TYPES.A;
   var base    = location.href.split("?")[0];
-  var url     = base + "?n=" + encodeURIComponent(name) + "&c=" + encodeURIComponent(co) + "&l=" + lv + "&t=" + t + "&k=" + encodeURIComponent(btoa(key||""));
+  // cl = company locked flag (empresa travada, participante não edita)
+  var url     = base + "?n=" + encodeURIComponent(name) + "&c=" + encodeURIComponent(co) + "&cl=1&l=" + lv + "&t=" + t + "&k=" + encodeURIComponent(btoa(key||""));
   document.getElementById("linkUrl").textContent = url;
   document.getElementById("linkBox").style.display = "block";
   // Mostrar tipo de teste no box do link
   var tInfoEl = document.getElementById("linkTestInfo");
-  if (tInfoEl) tInfoEl.innerHTML = '<span class="chip-test ' + tInfo.chip + '">🎯 ' + tInfo.short + '</span>';
-  // Registrar link enviado (com tipo de teste)
-  var phantom = {id:Date.now(),status:"pendente",name:"—",co:co,role:"—",discDom:null,testType:t,at:new Date().toISOString()};
+  if (tInfoEl) tInfoEl.innerHTML = '<span class="chip-test ' + tInfo.chip + '">🎯 ' + tInfo.short + '</span>' +
+    '<span style="margin-left:8px;font-size:12px;color:var(--muted)">🏢 ' + co + '</span>';
+  // Registrar link enviado (com tipo de teste e empresa)
+  var phantom = {id:Date.now(),status:"pendente",name:"—",co:co,coKey:companyKey(co),role:"—",discDom:null,testType:t,at:new Date().toISOString()};
   STATE.results.push(phantom);
   saveResults();
   renderStats();
@@ -2639,6 +2683,7 @@ function initFromURL() {
   STATE.cfg = {
     name: p.get("n") || "Vizzio Assessment",
     co:   p.get("c") || "",
+    coLocked: p.get("cl") === "1",   // empresa travada pelo administrador
     lv:   p.get("l") || "lider",
     testType: t,
     key:  p.get("k") ? (function(){ try{ return atob(p.get("k")); } catch(e){ return ""; } })() : loadKey()
@@ -2648,17 +2693,48 @@ function initFromURL() {
   QQ = filterQuestionsByTest(t);
   document.getElementById("aTitle").textContent = STATE.cfg.name;
   document.getElementById("aSubtitle").textContent = "Bem-vindo ao diagnóstico comportamental" + (STATE.cfg.co ? " · " + STATE.cfg.co : "") + ". Antes de começar, nos diga um pouco sobre você.";
+
+  // Se empresa veio travada, esconder/bloquear o campo do participante
+  if (STATE.cfg.coLocked && STATE.cfg.co) {
+    var pCoField = document.getElementById("pCo");
+    if (pCoField) {
+      pCoField.value = STATE.cfg.co;
+      pCoField.readOnly = true;
+      pCoField.style.opacity = "0.7";
+      pCoField.style.cursor = "not-allowed";
+      // Esconder o campo inteiro e mostrar a empresa fixa
+      var wrap = pCoField.closest(".field");
+      if (wrap) {
+        wrap.innerHTML = '<label>Empresa</label>' +
+          '<div style="padding:11px 14px;background:var(--card);border:1.5px solid var(--border);border-radius:10px;color:var(--text);font-weight:600;display:flex;align-items:center;gap:8px">' +
+          '🏢 ' + STATE.cfg.co +
+          '<span style="margin-left:auto;font-size:11px;color:var(--subtle)">definido pela organização</span>' +
+          '</div>';
+      }
+    }
+  }
+
   showPage("pgAssess");
 }
 
 function startAssessment() {
   var name  = document.getElementById("pName").value.trim();
   var role  = document.getElementById("pRole").value.trim();
-  var co    = document.getElementById("pCo").value.trim() || (STATE.cfg ? STATE.cfg.co : "");
   var phone = document.getElementById("pPhone").value.trim();
   if (!name) { alert("Por favor, informe seu nome."); return; }
 
-  STATE.part = {name:name, role:role, co:co, phone:phone};
+  // Empresa: se travada pelo administrador, usa SEMPRE a do convite.
+  // Senão, usa a digitada pelo participante (compatibilidade com links antigos).
+  var co;
+  if (STATE.cfg && STATE.cfg.coLocked && STATE.cfg.co) {
+    co = STATE.cfg.co;
+  } else {
+    var pCoEl = document.getElementById("pCo");
+    co = (pCoEl ? pCoEl.value.trim() : "") || (STATE.cfg ? STATE.cfg.co : "");
+  }
+  co = normalizeCompany(co);
+
+  STATE.part = {name:name, role:role, co:co, coKey:companyKey(co), phone:phone};
   STATE.qi = 0;
   STATE.answers = {};
   STATE.comments = {};
