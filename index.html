@@ -285,35 +285,13 @@ tr:last-child td{border-bottom:none}
         <div class="field"><label>Empresa cliente *</label><input id="cfgCo" placeholder="Ex: TechCorp Ltda" required></div>
       </div>
       <div class="field" style="margin-top:4px">
-        <label>Tipo de Teste — escolha a combinação que deseja aplicar</label>
-        <div class="ttype-grid">
-          <label class="ttype-card">
-            <input type="radio" name="testType" value="A" checked>
-            <div class="ttype-content">
-              <div class="ttype-emoji">🎯</div>
-              <div class="ttype-title">Teste A</div>
-              <div class="ttype-desc">Sabotadores<br>+ Ned Herrmann</div>
-              <div class="ttype-sub">10 perguntas</div>
-            </div>
-          </label>
-          <label class="ttype-card">
-            <input type="radio" name="testType" value="B">
-            <div class="ttype-content">
-              <div class="ttype-emoji">🎯</div>
-              <div class="ttype-title">Teste B</div>
-              <div class="ttype-desc">Sabotadores<br>+ DISC</div>
-              <div class="ttype-sub">14 perguntas</div>
-            </div>
-          </label>
-          <label class="ttype-card">
-            <input type="radio" name="testType" value="C">
-            <div class="ttype-content">
-              <div class="ttype-emoji">🎯</div>
-              <div class="ttype-title">Teste C</div>
-              <div class="ttype-desc">Sabotadores<br>+ Temperamentos</div>
-              <div class="ttype-sub">10 perguntas</div>
-            </div>
-          </label>
+        <label>Avaliação aplicada</label>
+        <div style="display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--card);border:1.5px solid var(--teal);border-radius:12px;background:rgba(0,212,200,.06)">
+          <div style="font-size:22px">🎯</div>
+          <div>
+            <div style="color:var(--teal);font-weight:800;font-size:15px">Sabotadores e Temperamentos</div>
+            <div style="color:var(--muted);font-size:12px;margin-top:2px">14 perguntas · Inteligência Positiva (sabotadores) + Quatro Temperamentos</div>
+          </div>
         </div>
       </div>
       <div class="row2">
@@ -594,25 +572,28 @@ var METODOLOGIA_SABOTADORES =
 "CONTRASTE COM O SÁBIO (a versão saudável NÃO é o sabotador): a mesma pessoa tem recursos genuínos — curiosidade, empatia, capacidade de agir, de inovar e de navegar decisões por valores. Analisar bem SEM sofrer, ajudar SEM culpa, buscar excelência SEM se punir são expressões saudáveis, não sabotadores. Só relate um sabotador como ativo quando as respostas indicarem o CUSTO emocional/comportamental — não a competência.\n" +
 "REGRA DE OURO: o sabotador descreve um CUSTO, não uma virtude. Na dúvida entre duas leituras, escolha a mais conservadora e diga menos, porém com precisão.\n";
 
+var METODOLOGIA_TEMPERAMENTOS =
+"═══ FUNDAMENTO METODOLÓGICO — QUATRO TEMPERAMENTOS ═══\n" +
+"Este teste usa o modelo dos quatro temperamentos, cujos nomes vêm da tradição clássica (Hipócrates/Galeno) e cujas descrições psicológicas são interpretações modernas desse modelo. É um mapa de tendências naturais de reação, energia e ritmo — NÃO um diagnóstico clínico nem um instrumento com validação psicométrica formal. Trate-o como uma leitura de estilo predominante, com humildade interpretativa.\n\n" +
+"A maioria das pessoas combina dois temperamentos (um dominante e um secundário). Raramente alguém é 'puro'. Sempre descreva a combinação, não um rótulo único.\n\n" +
+"DEFINIÇÕES DE CADA TEMPERAMENTO (use exatamente estes significados; redação própria):\n" +
+"• COLÉRICO — orientado a ação, resultado e metas. Determinado, direto, assume o comando com naturalidade e decide rápido. Energia voltada para fora, para mudar o ambiente. Lado de sombra: impaciência, dureza, tendência a atropelar pessoas e a querer controlar. NÃO confundir Colérico com 'irritado': o traço central é a orientação a resultado e o impulso de liderar, não o mau humor.\n" +
+"• SANGUÍNEO — orientado a pessoas e interação. Entusiasmado, comunicativo, otimista, espontâneo, ganha energia no convívio e no movimento. Lado de sombra: dispersão, dificuldade de foco e de concluir, impulsividade. O traço central é a sociabilidade calorosa e o otimismo, não apenas 'ser falante'.\n" +
+"• MELANCÓLICO — orientado a análise, profundidade e qualidade. Reflexivo, detalhista, criterioso, sensível, valoriza fazer bem-feito e com sentido. Precisa de tempo para processar e tende à introspecção. Lado de sombra: autocrítica, perfeccionismo, pessimismo, rigidez. O traço central é a profundidade analítica e o cuidado, não a tristeza.\n" +
+"• FLEUMÁTICO — orientado a estabilidade, harmonia e constância. Calmo, equilibrado, paciente, cooperativo, evita conflito e mantém a serenidade sob tensão. Ritmo mais tranquilo e regular. Lado de sombra: passividade, indecisão, resistência a mudança, dificuldade em se posicionar. O traço central é a calma estável e a busca de harmonia, não a 'falta de energia'.\n\n" +
+"DISTINÇÕES QUE EVITAM ERRO DE CLASSIFICAÇÃO (aplique com rigor):\n" +
+"- Colérico × Fleumático: ambos podem parecer firmes, mas o Colérico age rápido e busca controle; o Fleumático se mantém calmo e busca harmonia. Firmeza tranquila e aversão a conflito indicam FLEUMÁTICO, não Colérico.\n" +
+"- Melancólico × Fleumático: ambos são quietos, mas o Melancólico analisa em profundidade e é autocrítico; o Fleumático busca paz e estabilidade sem a mesma ruminação. Introspecção analítica é MELANCÓLICO; serenidade estável é FLEUMÁTICO.\n" +
+"- Sanguíneo × Colérico: ambos são extrovertidos e enérgicos, mas o Sanguíneo é movido por pessoas e entusiasmo; o Colérico é movido por metas e resultado.\n\n" +
+"REGRA DE PRECISÃO: baseie a leitura nos percentuais E nas respostas escritas. Se dois temperamentos ficam próximos, descreva a combinação em vez de forçar um vencedor. Na dúvida, seja conservador: descreva a tendência observável, sem inventar traços que os dados não sustentam.\n";
+
 // ═══════════════════════════════════════════════════════════════
 // TIPOS DE TESTE — combinações comportamentais especializadas
 // ═══════════════════════════════════════════════════════════════
 var TEST_TYPES = {
   A: {
-    label: "Teste A — Sabotadores + Ned Herrmann",
-    short: "Sabotadores + Ned Herrmann",
-    insts: ["SAB","NED"],
-    chip: "tA"
-  },
-  B: {
-    label: "Teste B — Sabotadores + DISC",
-    short: "Sabotadores + DISC",
-    insts: ["SAB","DISC"],
-    chip: "tB"
-  },
-  C: {
-    label: "Teste C — Sabotadores + Temperamentos",
-    short: "Sabotadores + Temperamentos",
+    label: "Avaliação Vizzio — Sabotadores e Temperamentos",
+    short: "Sabotadores e Temperamentos",
     insts: ["SAB","TEMP"],
     chip: "tC"
   }
@@ -627,124 +608,63 @@ var TEST_TYPES = {
 // dims_multi[]: dimensões secundárias afetadas com pesos [{dim,score}]
 var QQ_ALL = [
 
-// ── DISC — Dominância ──────────────────────────────────────
-{id:0,phase:"Perfil Comportamental",inst:"DISC",dim:"D",
- ctx:"Situação crítica no trabalho. Problema na sua frente, pressão alta, sem todas as informações que você gostaria.",
- q:"O que você faz de verdade — não o que você acha que deveria fazer?",
- opts:["Tomo a frente na hora — prefiro agir e corrigir no caminho a esperar","Envolvo as pessoas certas antes de me mover — decisão sem time é risco","Analiso antes de agir — me mover sem clareza me incomoda profundamente","Sigo o processo que existe — funciona porque foi pensado para isso","Depende do quanto aquilo me afeta diretamente — isso muda tudo"],
- score:[5,3,2,3,3],
- multi:[{dim:"I",w:[3,4,2,2,2]},{dim:"C",w:[1,2,4,5,3]}]},
-
-{id:1,phase:"Perfil Comportamental",inst:"DISC",dim:"D",
- ctx:"Numa conversa importante — pode ser com a família, amigos ou no trabalho — você tem uma posição diferente da maioria. Todos olham para você.",
- q:"O que você faz?",
- opts:["Defendo minha posição — não mudo por pressão dos outros","Tento convencer mostrando os benefícios do que acredito","Ouço com atenção antes de decidir se vale insistir","Busco fatos e razões — posição sem fundamento é só opinião","Cedo na forma mas mantenho a essência do que penso"],
- score:[5,4,3,4,3],
- multi:[{dim:"I",w:[3,5,3,2,2]},{dim:"C",w:[2,2,3,5,3]}]},
-
-// ── DISC — Influência ─────────────────────────────────────
-{id:2,phase:"Perfil Comportamental",inst:"DISC",dim:"I",
- ctx:"Reunião travada. Energia baixa, pessoas desengajadas, a pauta está parada.",
- q:"O que você sente vontade de fazer — não o que você acha correto, o que você de fato quer fazer?",
- opts:["Assumo a condução e começo a mover o grupo — energia baixa me incomoda e eu quero resolver","Crio um momento mais leve para reconectar as pessoas antes de voltar à pauta","Fico atento ao que está bloqueando o grupo e tento resolver a raiz","Foco no que precisa ser decidido e empurro para frente — objetivo é o objetivo","Observo mais um tempo antes de me posicionar — não gosto de me mover sem entender"],
- score:[4,5,3,3,2],
- multi:[{dim:"D",w:[4,2,2,4,2]},{dim:"S",w:[2,3,5,3,4]}]},
-
-{id:3,phase:"Perfil Comportamental",inst:"DISC",dim:"I",
- ctx:"Um evento social com pessoas que você ainda não conhece — uma festa, um encontro, um grupo novo.",
- q:"O que passa dentro de você nesse momento?",
- opts:["Me energizo — conhecer gente nova e puxar conversa me ativa de verdade","Fico animado, com um leve frio na barriga que passa quando engato","Observo primeiro, me aproximo aos poucos de quem me parece mais acessível","Prefiro ficar mais reservado — ambientes assim não são onde me sinto forte","Me adapto, mas não é onde me sinto mais natural e confortável"],
- score:[5,4,3,1,2],
- multi:[{dim:"D",w:[4,3,3,2,2]},{dim:"S",w:[2,2,3,5,4]}]},
-
-// ── DISC — Estabilidade ───────────────────────────────────
-{id:4,phase:"Perfil Comportamental",inst:"DISC",dim:"S",
- ctx:"Um plano que você tinha — uma viagem, um compromisso, uma rotina — muda de repente por algo fora do seu controle.",
- q:"O que acontece dentro de você — não o que você demonstra, o que você sente de verdade?",
- opts:["Adapto rápido — mudança faz parte da vida, não tem o que fazer","Fico um pouco incomodado mas me ajusto com relativa facilidade","Preciso de um tempo para processar — mudança brusca me desequilibra","Me irrito internamente, mesmo conseguindo me controlar por fora","Depende do impacto da mudança no que já estava planejado"],
- score:[3,4,5,3,4],
- multi:[{dim:"D",w:[2,1,1,4,2]},{dim:"C",w:[1,2,4,2,4]}]},
-
-{id:5,phase:"Perfil Comportamental",inst:"DISC",dim:"S",
- ctx:"Um período cheio na sua vida, sem muito tempo livre. Alguém de quem você gosta pede sua ajuda de última hora.",
- q:"O que você faz?",
- opts:["Paro e ajudo — as pessoas que amo vêm primeiro, sempre","Avalio rapidamente e, se der, ajudo com genuína vontade","Explico que não consigo agora, mas combino para logo depois","Ajudo, mas deixo claro que espero a mesma coisa de volta","Depende de quem é e do quanto isso atrapalha o que já tenho"],
- score:[5,4,3,3,3],
- multi:[{dim:"I",w:[3,3,1,2,1]},{dim:"D",w:[1,2,3,3,3]}]},
-
-// ── DISC — Conformidade ───────────────────────────────────
-{id:6,phase:"Perfil Comportamental",inst:"DISC",dim:"C",
- ctx:"Você vai começar algo novo na sua vida — um projeto pessoal, um hobby, uma mudança. Há espaço para improvisar ou para se aprofundar.",
- q:"Como você naturalmente prefere começar?",
- opts:["Começo logo e vou ajustando — aprendo fazendo","Busco entender bem o contexto antes de qualquer passo","Monto um plano detalhado antes de dar o primeiro passo","Pesquiso, leio e busco referências antes de agir","Faço um teste pequeno e vou ajustando com o que aprendo"],
- score:[1,3,4,5,4],
- multi:[{dim:"D",w:[5,3,2,2,3]},{dim:"S",w:[2,4,5,4,4]}]},
-
-{id:7,phase:"Perfil Comportamental",inst:"DISC",dim:"C",
- ctx:"Você está revisando um trabalho antes de entregar. Está bom — poderia estar melhor com mais 2 horas.",
- q:"O que você decide?",
- opts:["Entrego como está — prazo é prazo e bom já resolve","Ajusto o que der em 15 minutos e entrego","Trabalho mais até chegar no padrão que considero adequado","Reviso item por item — não entrego sem ter certeza","Entrego, mas já anoto o que melhoraria e peço feedback"],
- score:[1,3,4,5,4],
- multi:[{dim:"D",w:[5,4,2,1,3]},{dim:"I",w:[2,3,3,2,4]}]},
-
 // ── TEMPERAMENTOS ─────────────────────────────────────────
 {id:8,phase:"Temperamento e Emoções",inst:"TEMP",dim:"Co",
  ctx:"Imagine que algo dá errado de verdade — pode ser na vida pessoal, em casa ou no trabalho. Um imprevisto, um conflito, uma frustração.",
  q:"Qual é sua primeira reação, de verdade?",
- opts:["Parto pra ação, resolvo logo e sigo em frente — não fico remoendo","Respiro fundo, processo e ajo com calma depois","Quero entender tudo que aconteceu antes de qualquer movimento","Fico irritado num primeiro momento, mas me reorganizo rápido","Absorvo por dentro — preciso de tempo para me reequilibrar"],
- score:[4,2,2,5,1],
- multi:[{dim:"Sa",w:[3,3,2,2,1]},{dim:"Me",w:[1,2,4,2,5]},{dim:"Fl",w:[2,5,4,1,3]}]},
+ opts:["Assumo o comando e parto pra ação — resolvo logo e sigo em frente","Chamo as pessoas, converso e busco resolver junto, mantendo o ânimo","Quero entender a fundo tudo que aconteceu antes de qualquer movimento","Mantenho a calma, não me abalo muito e vou ajustando aos poucos","Absorvo por dentro — preciso de um tempo para reequilibrar antes de agir"],
+ score:[5,2,2,2,1],
+ multi:[{dim:"Sa",w:[2,5,1,2,1]},{dim:"Me",w:[1,1,5,2,4]},{dim:"Fl",w:[1,2,2,5,3]}]},
 
 {id:9,phase:"Temperamento e Emoções",inst:"TEMP",dim:"Sa",
  ctx:"Começa um período intenso na sua vida — muitas demandas, muita gente contando com você, pouco tempo de sobra.",
  q:"Como você normalmente entra nesse momento?",
- opts:["Com energia e otimismo — quanto mais movimento, mais me animo","Focado e determinado — vou fazer o que precisa ser feito","Com cuidado — organizo tudo primeiro antes de agir","Com certa relutância — preciso de um tempo para engatar","Depende do meu estado emocional naquele momento"],
- score:[5,2,1,1,3],
- multi:[{dim:"Co",w:[3,5,2,1,2]},{dim:"Fl",w:[1,2,4,5,3]},{dim:"Me",w:[1,2,4,3,3]}]},
+ opts:["Com entusiasmo e no meio das pessoas — o convívio e o clima me dão energia","Focado no resultado e determinado — vou fazer o que precisa ser feito","Organizando tudo com cuidado e critério antes de agir","Com calma e no meu ritmo — sem pressa e sem me abalar","Depende do meu estado emocional naquele momento"],
+ score:[5,2,1,2,3],
+ multi:[{dim:"Co",w:[2,5,2,1,2]},{dim:"Fl",w:[1,1,3,5,3]},{dim:"Me",w:[1,2,5,2,3]}]},
 
 {id:10,phase:"Temperamento e Emoções",inst:"TEMP",dim:"Me",
  ctx:"Você precisa tomar uma decisão importante — com prazo curto e informações incompletas.",
  q:"Como seu processo de decisão funciona naturalmente?",
- opts:["Decido rápido com o que tenho — tempo também é recurso","Consulto quem precisa consultar antes de decidir","Analiso com cuidado os dados disponíveis antes de qualquer coisa","Sigo minha intuição — ela raramente me trai nessas horas","Procuro mais informação mesmo que isso atrase um pouco"],
- score:[1,2,5,2,4],
- multi:[{dim:"Co",w:[5,2,1,3,1]},{dim:"Fl",w:[2,4,3,3,4]},{dim:"Sa",w:[3,3,1,4,1]}]},
+ opts:["Decido rápido e assumo a responsabilidade — tempo também é recurso","Converso com as pessoas envolvidas e decido no clima do grupo","Analiso com cuidado e profundidade os dados antes de qualquer coisa","Tomo a decisão com calma, sem pressa, buscando o caminho mais tranquilo","Busco mais informação e reflito bastante, mesmo que isso atrase um pouco"],
+ score:[1,1,5,2,4],
+ multi:[{dim:"Co",w:[5,2,1,2,1]},{dim:"Sa",w:[2,5,1,2,1]},{dim:"Fl",w:[2,3,2,5,3]}]},
 
 {id:11,phase:"Temperamento e Emoções",inst:"TEMP",dim:"Fl",
  ctx:"Uma situação tensa surge entre pessoas à sua volta — em casa, com amigos ou no trabalho. O clima fica pesado.",
  q:"Como você naturalmente reage?",
- opts:["Encaro de forma direta e resolvo logo — não gosto de deixar pendente","Mantenho a calma e busco apaziguar, evitando que aumente","Fico tranquilo e equilibrado, ajudo a baixar a tensão sem confronto","Analiso a fundo o que causou e penso bem antes de me posicionar","Prefiro me afastar e deixar a poeira baixar antes de agir"],
- score:[2,4,5,3,4],
- multi:[{dim:"Co",w:[5,2,1,2,1]},{dim:"Me",w:[1,2,2,5,3]},{dim:"Sa",w:[2,4,3,1,2]}]},
+ opts:["Encaro de forma direta e resolvo logo — não gosto de deixar pendente","Uso o bom humor e a conversa para aliviar e reaproximar as pessoas","Fico calmo e equilibrado, ajudo a baixar a tensão sem entrar em confronto","Analiso a fundo o que causou tudo antes de me posicionar","Prefiro me afastar e deixar a poeira baixar antes de agir"],
+ score:[1,2,5,2,4],
+ multi:[{dim:"Co",w:[5,2,1,2,1]},{dim:"Sa",w:[2,5,2,1,1]},{dim:"Me",w:[1,1,2,5,3]}]},
 
-// ── DOMINÂNCIA CEREBRAL (Ned Herrmann) — 4 QUADRANTES ───────
-// NA = Analítico  | NB = Organizado  | NC = Interpessoal  | ND = Inovador
-{id:12,phase:"Dominância Cerebral",inst:"NED",dim:"NA",
- ctx:"Você está diante de um problema técnico complexo com várias variáveis em jogo.",
- q:"O que naturalmente vem primeiro na sua cabeça?",
- opts:["Quero ver os números, dados e fatos concretos antes de qualquer coisa","Vou organizar o problema em etapas para resolver sistematicamente","Preciso conversar com as pessoas envolvidas para entender o contexto","Visualizo possibilidades criativas e soluções não óbvias","Considero todas as abordagens em paralelo, sem priorizar uma"],
- score:[5,2,1,2,3],
- multi:[{dim:"NB",w:[2,5,1,2,3]},{dim:"NC",w:[1,2,5,2,3]},{dim:"ND",w:[2,2,1,5,3]}]},
+// ── TEMPERAMENTOS — 2ª RODADA (confirma o padrão em outro contexto) ──
+{id:27,phase:"Temperamento e Emoções",inst:"TEMP",dim:"Co",
+ ctx:"Você está trabalhando em equipe num projeto e percebe que o ritmo está mais lento do que deveria — o prazo está correndo.",
+ q:"O que você faz, de forma natural?",
+ opts:["Tomo a frente, dou o ritmo e cobro entregas — alguém precisa puxar","Animo o grupo, incentivo e ajudo a manter todo mundo motivado","Levanto os dados do atraso e proponho um plano estruturado","Sigo no meu ritmo estável, sem pressionar, confiando que se resolve","Prefiro observar mais um pouco antes de fazer qualquer cobrança"],
+ score:[5,2,2,2,1],
+ multi:[{dim:"Sa",w:[2,5,1,2,1]},{dim:"Me",w:[2,1,5,2,3]},{dim:"Fl",w:[1,2,2,5,4]}]},
 
-{id:13,phase:"Dominância Cerebral",inst:"NED",dim:"NB",
- ctx:"Você precisa entregar um projeto importante até uma data definida — com qualidade.",
- q:"Como você naturalmente conduz o processo de execução?",
- opts:["Crio um plano detalhado com etapas, prazos e responsáveis bem definidos","Levanto todos os dados e variáveis antes de começar a executar","Engajo o time, garantindo alinhamento humano em cada etapa","Visualizo o resultado final ideal e trabalho de trás para frente","Combino planejamento, dados, time e visão simultaneamente"],
- score:[5,2,2,1,3],
- multi:[{dim:"NA",w:[2,5,1,2,3]},{dim:"NC",w:[1,1,5,2,3]},{dim:"ND",w:[2,2,2,5,3]}]},
+{id:28,phase:"Temperamento e Emoções",inst:"TEMP",dim:"Sa",
+ ctx:"Você chega a um ambiente novo — uma festa, um novo trabalho, um grupo que você não conhece bem.",
+ q:"Como você costuma se comportar nas primeiras horas?",
+ opts:["Puxo assunto com facilidade, conheço gente nova e me solto rápido","Avalio a situação e busco entender as pessoas envolvidas com calma","Fico mais reservado, observando antes de me aproximar de alguém","Me organizo primeiro, entendo o ambiente antes de interagir","Sigo tranquilo, converso com quem se aproxima, sem forçar nada"],
+ score:[5,2,1,1,3],
+ multi:[{dim:"Co",w:[2,5,1,2,1]},{dim:"Me",w:[1,2,3,5,2]},{dim:"Fl",w:[1,1,3,2,5]}]},
 
-{id:14,phase:"Dominância Cerebral",inst:"NED",dim:"NC",
- ctx:"Uma decisão importante precisa ser tomada e envolve várias pessoas afetadas direta ou indiretamente.",
- q:"O que você considera prioritariamente?",
- opts:["Como cada pessoa vai se sentir e reagir emocionalmente à decisão","Os dados objetivos da situação acima de qualquer subjetividade","O processo decisório precisa ser ordenado, documentado e claro","Que decisão abre mais possibilidades e potencial transformador","Equilibro pessoas, dados, processo e visão na mesma medida"],
- score:[5,1,2,2,3],
- multi:[{dim:"NA",w:[1,5,2,2,3]},{dim:"NB",w:[2,2,5,1,3]},{dim:"ND",w:[2,1,1,5,3]}]},
+{id:29,phase:"Temperamento e Emoções",inst:"TEMP",dim:"Me",
+ ctx:"Você entrega um trabalho e recebe uma crítica específica sobre um ponto que poderia estar melhor.",
+ q:"O que se passa dentro de você?",
+ opts:["Reflito bastante sobre isso, reviso os detalhes e quero entender exatamente onde errei","Levo na esportiva, ajusto rápido e sigo sem me prender muito ao ocorrido","Fico incomodado por um instante e já penso em como resolver na prática","Absorvo com calma, sem me abalar, e ajusto no meu tempo","Uso a crítica pra conversar com a pessoa e alinhar melhor as expectativas"],
+ score:[5,2,2,3,2],
+ multi:[{dim:"Co",w:[1,2,5,1,2]},{dim:"Sa",w:[1,3,2,1,5]},{dim:"Fl",w:[2,2,1,5,2]}]},
 
-{id:26,phase:"Dominância Cerebral",inst:"NED",dim:"ND",
- ctx:"Você tem espaço para repensar algo importante do zero — sem amarras nem regras prontas.",
- q:"Como você naturalmente se engaja com essa oportunidade?",
- opts:["Imagino possibilidades amplas, conexões inusitadas, o 'e se?'","Antes de imaginar, preciso de fatos sólidos sobre o estado atual","Estruturo um plano de exploração com fases bem definidas","Pergunto ao time o que cada um sonharia diferente","Equilibro intuição, dados, plano e diálogo simultaneamente"],
- score:[5,2,1,2,3],
- multi:[{dim:"NA",w:[2,5,1,1,3]},{dim:"NB",w:[1,1,5,2,3]},{dim:"NC",w:[1,1,2,5,3]}]},
+{id:30,phase:"Temperamento e Emoções",inst:"TEMP",dim:"Fl",
+ ctx:"Um plano que você tinha combinado muda de repente por conta de outras pessoas, sem muito aviso.",
+ q:"Como você reage, na prática?",
+ opts:["Me adapto com tranquilidade — mudança de plano não me tira do sério","Fico bem incomodado e sinto vontade de reorganizar tudo do meu jeito","Aproveito pra fazer algo diferente e chamo outras pessoas pro novo plano","Preciso entender o motivo da mudança antes de me sentir à vontade com ela","Fico incomodado por dentro, mas não demonstro muito pra fora"],
+ score:[5,1,2,3,3],
+ multi:[{dim:"Co",w:[1,5,1,2,2]},{dim:"Sa",w:[2,2,5,1,1]},{dim:"Me",w:[2,2,2,5,4]}]},
 
 // ── INTELIGÊNCIA POSITIVA (Shirzad Chamine) ──────────────
 {id:15,phase:"Inteligência Positiva",inst:"QP",dim:"QP",
@@ -1598,7 +1518,7 @@ function gerarAIAdmin(r) {
     perfilLinhas.push("DISC: D=" + r.disc.D + "% I=" + r.disc.I + "% S=" + r.disc.S + "% C=" + r.disc.C +
                       "% | Dominante: " + r.discDom + " (" + DISC_NAMES[r.discDom] + ")");
   } else if (insts.indexOf("TEMP") >= 0) {
-    instrSegundo = "Temperamentos de Hipócrates";
+    instrSegundo = "Quatro Temperamentos";
     perfilLinhas.push("Temperamentos: Colérico=" + r.temp.Co + "% Sanguíneo=" + r.temp.Sa +
                       "% Fleumático=" + r.temp.Fl + "% Melancólico=" + r.temp.Me +
                       "% | Dominante: " + TEMP_NAMES[r.tempDom]);
@@ -1651,6 +1571,7 @@ function gerarAIAdmin(r) {
     "Vocabulário: clareza, autonomia, alto rendimento, transformação, cultura, resultado.\n\n" +
 
     METODOLOGIA_SABOTADORES + "\n" +
+    (insts.indexOf("TEMP") >= 0 ? METODOLOGIA_TEMPERAMENTOS + "\n" : "") +
 
     "═══ PRECISÃO OBRIGATÓRIA (este relatório é tratado como um laudo) ═══\n" +
     "Este resultado orienta o trabalho de desenvolvimento de uma pessoa real. Precisa ser CIRÚRGICO.\n" +
@@ -1974,12 +1895,11 @@ function renderResults() {
         }
       }
 
-      var testChip = '<span class="chip-test ' + ttInfo.chip + '">🎯 ' + tt + '</span>';
       var status = r.status === "done"
         ? '<span class="s-done">✓ Concluído</span>'
         : '<span class="s-pend">⏳ Pendente</span>';
       h += '<tr>';
-      h += '<td style="font-weight:600;padding-left:22px">' + (r.name||"—") + ' ' + testChip + '</td>';
+      h += '<td style="font-weight:600;padding-left:22px">' + (r.name||"—") + '</td>';
       h += '<td>' + (r.co||"—") + '</td>';
       h += '<td>' + (r.role||"—") + '</td>';
       h += '<td>' + chip + '</td>';
@@ -2053,7 +1973,7 @@ function _gerarEMostrar(i) {
     perfilLinhas.push("DISC: D=" + r.disc.D + "% I=" + r.disc.I + "% S=" + r.disc.S + "% C=" + r.disc.C +
                "% | Dominante: " + r.discDom + " (" + DISC_NAMES[r.discDom] + ")");
   } else if (insts.indexOf("TEMP") >= 0) {
-    instrSegundo = "Temperamentos de Hipócrates";
+    instrSegundo = "Quatro Temperamentos";
     perfilLinhas.push("Temperamentos: Colérico=" + r.temp.Co + "% Sanguíneo=" + r.temp.Sa +
                "% Fleumático=" + r.temp.Fl + "% Melancólico=" + r.temp.Me +
                "% | Dominante: " + TEMP_NAMES[r.tempDom]);
@@ -2095,6 +2015,7 @@ function _gerarEMostrar(i) {
     "Vocabulário obrigatório: clareza, autonomia, alto rendimento, transformação, cultura, resultado.\n\n" +
 
     METODOLOGIA_SABOTADORES + "\n" +
+    (insts.indexOf("TEMP") >= 0 ? METODOLOGIA_TEMPERAMENTOS + "\n" : "") +
 
     "═══ PRECISÃO OBRIGATÓRIA (este relatório é tratado como um laudo) ═══\n" +
     "Este resultado orienta o desenvolvimento de uma pessoa real. Precisa ser CIRÚRGICO.\n" +
@@ -2635,9 +2556,8 @@ function genLink() {
   }
 
   if (key) saveKey(key);
-  // Tipo de teste selecionado
-  var ttRadio = document.querySelector('input[name="testType"]:checked');
-  var t       = ttRadio ? ttRadio.value : "A";
+  // Único teste disponível: Sabotadores + Temperamentos
+  var t       = "A";
   var tInfo   = TEST_TYPES[t] || TEST_TYPES.A;
   var base    = location.href.split("?")[0];
   // cl = company locked flag (empresa travada, participante não edita)
